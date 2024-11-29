@@ -1,0 +1,5 @@
+className={`grid  ${
+                reversed ? "lg:grid-cols-[6fr_4fr]" : "lg:grid-cols-[4fr_6fr]"
+              }  lg:gap-8 gap-6`}
+
+className={`column ${reversed ? "order-2" : "order-1"}`}

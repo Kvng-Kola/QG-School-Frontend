@@ -1,0 +1,45 @@
+.our-school-img-card {
+  max-width: 280px;
+  margin: 0 auto 24px auto;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.img-card-wrap {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  border: 0.9px solid transparent;
+}
+.card-shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.card-hover:hover {
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 200ms;
+  border: 0.9px solid #ecd67d;
+  border-radius: 8px;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.imgcardHolder a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.imgcardHolder a img {
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: contain;
+}
+.imgcardHolder-bg {
+  background: #ede1b2;
+}
+.imgcardHolder-bg-3 {
+  background: #EBD6C7;
+}
+.imgcardHolder-bg-blue{
+    background: #CBDFEC;
+}

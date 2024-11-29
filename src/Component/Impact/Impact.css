@@ -1,0 +1,17 @@
+.impact-bg{
+    background: #F4F4F4;
+    position: relative;
+}
+.impact-F-icon{
+    @apply absolute top-0 lg:left-[47px];
+    opacity: 0.4;
+    transition: var(--transition);
+}
+.h3-div{
+    background: #F4F4F4;
+}
+.impact-r-icon{
+    @apply absolute bottom-0 right-[64px];
+    opacity: 0.4;
+    transition: var(--transition);
+}
