@@ -71,7 +71,7 @@ export default function Header() {
                 <Link>
                   <img
                     className='lg:max-w-[160px] lg:max-h-[80px] max-w-[135px] max-h-[56px]'
-                    src="https://brightstarschools.org/images/bss-logo.svg"
+                     src="https://brightstarschools.org/images/bss-logo.svg"
                     alt=""
                   />
                 </Link>
