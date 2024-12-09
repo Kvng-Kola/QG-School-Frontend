@@ -27,45 +27,48 @@ export default function Header() {
   const handleMouseLeave = () => {
     setHoveredItem(null);
   };
+  const validItems = ['schools' , 'about' , 'enroll' , 'program' , 'alumni', 'career', 'news'];
 
   return (
     <>
       <header>
         {/* header Utility */}
         <div className="relative z-[1200] w-full ">
-          <div className="hidden xl:flex justify-between items-center px-4 py-2 relative z-50 bg-white">
-            <div className="flex items-center text-[13px] utility">
-              {/* Utility-right */}
-              <BellIcon className="w-4" />
-              <span className="px-1">24-25 School Year Information</span>
-              <Link className="underline">Learn More</Link>
-            </div>
-            <div className="flex items-center justify-center utility text-[14px]">
-              {/* Utility-Left */}
-              <div className="text-primaryDark300 font-bold px-4">
-                <Link>Donate</Link>
+          <div className="border-b border-solid border-grey2">
+            <div className="hidden xl:flex justify-between items-center px-4 py-2 relative z-50 bg-white">
+              <div className="flex items-center text-[13px] utility">
+                {/* Utility-right */}
+                <BellIcon className="w-4" />
+                <span className="px-1">24-25 School Year Information</span>
+                <Link className="underline">Learn More</Link>
               </div>
-              <div className="">
-                <ul className="flex">
-                  <li className="relative px-4">
-                    <Link>Compliance</Link>
-                  </li>
-                  <li className="relative px-4">
-                    <Link>Staff Resources</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="px-4 relative mr-3 g-translate">
-                <Link className="text-red">Select Language</Link>
-              </div>
-              <div className="">
-                <MagnifyingGlassIcon className="w-4" />
+              <div className="flex items-center justify-center utility text-[14px]">
+                {/* Utility-Left */}
+                <div className="text-primaryDark300 font-bold px-4">
+                  <Link>Donate</Link>
+                </div>
+                <div className="">
+                  <ul className="flex">
+                    <li className="relative px-4">
+                      <Link>Compliance</Link>
+                    </li>
+                    <li className="relative px-4">
+                      <Link>Staff Resources</Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className="px-4 relative mr-3 g-translate">
+                  <Link className="text-red">Select Language</Link>
+                </div>
+                <div className="">
+                  <MagnifyingGlassIcon className="w-4" />
+                </div>
               </div>
             </div>
           </div>
           {/* Navigation */}
           <Disclosure as="nav">
-            <div className="flex items-center justify-between relative min-h-[86px] px-3 py-1 lg:px-4 lg:py-0 bg-Shadow">
+            <div className={`flex items-center justify-between relative min-h-[86px] px-3 py-1 lg:px-4 lg:py-0 ${classNames(validItems.includes(hoveredItem)  ? 'bg-white' : 'bg-Shadow')}`} >
               {/* School Logo */}
               <div className="">
                 <Link>
@@ -86,7 +89,7 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("schools")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link className={classNames(validItems.includes(hoveredItem) ? '!text-primary' : '')}>
                         <span>Schools</span>
                       </Link>
                     </li>
@@ -95,7 +98,7 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("about")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link className={classNames(validItems.includes(hoveredItem) ? '!text-primary' : '')}>
                         <span>About</span>
                       </Link>
                     </li>
@@ -104,7 +107,7 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("enroll")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link className={classNames(validItems.includes(hoveredItem) ? '!text-primary' : '')}>
                         <span>Enroll</span>
                       </Link>
                     </li>
@@ -113,7 +116,7 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("program")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link className={classNames(validItems.includes(hoveredItem) ? '!text-primary' : '')}>
                         <span>Program</span>
                       </Link>
                     </li>
@@ -122,7 +125,7 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("alumni")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link className={classNames(validItems.includes(hoveredItem) ? '!text-primary' : '')}>
                         <span>Alumni</span>
                       </Link>
                     </li>
@@ -131,12 +134,12 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("career")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link className={classNames(validItems.includes(hoveredItem) ? '!text-primary' : '')}>
                         <span>Careers</span>
                       </Link>
                     </li>
                     <li>
-                      <Link>
+                      <Link className={classNames(validItems.includes(hoveredItem) ? '!text-primary' : '')}>
                         <span>News</span>
                       </Link>
                     </li>
@@ -144,7 +147,7 @@ export default function Header() {
                 </div>
                 {/* Enroll Button */}
                 <div className="enroll-button flex items-center pl-4 mt-2">
-                  <Link>Enroll Now</Link>
+                  <Link to='/enroll'>Enroll Now</Link>
                 </div>
               </div>
               {/* Mobile Menu navigation */}
@@ -549,7 +552,7 @@ export default function Header() {
                   </div>
                 </div>
                 <div className="enroll-button">
-                  <Link className="!bg-white !text-red hover:!bg-red hover:!text-white rounded-full">
+                  <Link to='/enroll' className="!bg-white !text-red hover:!bg-red hover:!text-white rounded-full">
                     Enroll Now
                   </Link>
                 </div>

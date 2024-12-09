@@ -7,6 +7,7 @@ import Faqs from './Pages/Faqs'
 import Login from './Pages/Login'
 import Logout from './Pages/Logout'
 import Register from './Pages/Register'
+import Enroll from './Pages/Enroll'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/logout' element={<Logout/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/enroll' element={<Enroll/>}/>
       </Routes>
       </BrowserRouter>
     </>

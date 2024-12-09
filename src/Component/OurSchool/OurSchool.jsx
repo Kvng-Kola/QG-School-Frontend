@@ -293,7 +293,7 @@ export default function OurSchool() {
                       </div>
                       <div className="flex w-full p-[15px]">
                         <div className="tiltephone w-28 text-[12px] font-bold font-secondary">
-                          <p>
+                          <p className="">
                             <Link>
                               Stella High <br /> Charter Academy
                             </Link>

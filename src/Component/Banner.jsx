@@ -29,7 +29,7 @@ export default function Banner() {
                 <div className="icon">
                   <img
                     className="max-w-[80px] lg:max-w-max"
-                    src="https://brightstarschools.org/images/icon-enroll-with-us.svg"
+                    src="https://brightstarschools.org/images/icon-teach-with-us.svg"
                     alt=""
                   />
                 </div>
@@ -46,7 +46,7 @@ export default function Banner() {
                 <div className="icon">
                   <img
                     className="max-w-[80px] lg:max-w-max"
-                    src="https://brightstarschools.org/images/icon-enroll-with-us.svg"
+                    src="https://brightstarschools.org/images/icon-alumni-and-beyond.svg"
                     alt=""
                   />
                 </div>

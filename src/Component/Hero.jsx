@@ -87,7 +87,7 @@ export default function Hero() {
                   <p key={currentIndex} className="mb-3">
                     {imageSlider[currentIndex].description}
                   </p>
-                  <p >{imageSlider[currentIndex].sDesc}</p>
+                  <p>{imageSlider[currentIndex].sDesc}</p>
                 </div>
                 <div className="enroll-button slider-btn">
                   <Link
@@ -101,7 +101,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
           <div
             onClick={prevSlide}
             className="absolute sm:top-[50%] top-[45%]  sm:left-5 left-2  -translate-x-0 translate-y-[-50%] z-50"
@@ -124,8 +123,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <Banner/>
-      
+      <Banner />
     </>
   );
 }

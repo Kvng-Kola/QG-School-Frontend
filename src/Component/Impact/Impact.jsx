@@ -27,8 +27,8 @@ export default function Impact() {
                     <h3 className="lg:text-[25.5px] text-[calc(25.5px/1.25)] mb-4 font-bold ">
                       <span>92</span>%
                     </h3>
-                    <div className="text-[15px]">
-                      <p className="">High School Graduation Rate (2023)</p>
+                    <div className="">
+                      <p className="text-[14px]">High School Graduation Rate (2023)</p>
                     </div>
                   </div>
                   <div className="our-impact-item relative text-center font-poppins">
@@ -42,8 +42,8 @@ export default function Impact() {
                     <h3 className="lg:text-[25.5px] text-[calc(25.5px/1.25)] mb-4 font-bold ">
                       <span>100</span>%
                     </h3>
-                    <div className="text-[15px]">
-                      <p className="leading-[1.6]">
+                    <div className="">
+                      <p className="leading-[1.6] text-[14px]">
                         Bright Star Graduates Eligible for Cal State or UC
                         Admissions
                       </p>
@@ -60,8 +60,8 @@ export default function Impact() {
                     <h3 className="lg:text-[25.5px] text-[calc(25.5px/1.25)] mb-4 font-bold ">
                       <span>88</span>%
                     </h3>
-                    <div className="text-[15px]">
-                      <p className="leading-[1.6]">
+                    <div className="">
+                      <p className="leading-[1.6] text-[14px]">
                         Matriculation to 2- and 4-Year Colleges and Universities
                         (2023)
                       </p>
@@ -75,11 +75,11 @@ export default function Impact() {
                         className="max-h-24 max-w-24 block m-auto"
                       />
                     </div>
-                    <h3 className="lg:text-[25.5px] text-[calc(25.5px/1.25)] mb-4 font-bold ">
+                    <h3 className="lg:text-[25.5px] text-[20.4px] mb-4 font-bold ">
                       <span>1.7</span> Million
                     </h3>
-                    <div className="text-[15px]">
-                      <p className="leading-[1.6]">
+                    <div className="">
+                      <p className="leading-[1.6] text-[14px]">
                         Counseling Minutes Yearly to Support Students and
                         Families
                       </p>

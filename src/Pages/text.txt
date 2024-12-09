@@ -1,5 +1,69 @@
-className={`grid  ${
-                reversed ? "lg:grid-cols-[6fr_4fr]" : "lg:grid-cols-[4fr_6fr]"
-              }  lg:gap-8 gap-6`}
-
-className={`column ${reversed ? "order-2" : "order-1"}`}
+Updated Database Schema Design
+1. Students Table
+student_id (Primary Key, INT, Auto Increment)
+first_name (VARCHAR(50))
+last_name (VARCHAR(50))
+email (VARCHAR(100), UNIQUE)
+phone_number (VARCHAR(15))
+date_of_birth (DATE)
+registration_date (DATETIME)
+2. Courses Table
+course_id (Primary Key, INT, Auto Increment)
+course_name (VARCHAR(100))
+description (TEXT)
+price_per_session (DECIMAL(10, 2)) // Price per session
+duration_weeks (INT) // Total duration in weeks
+3. Subjects Table
+subject_id (Primary Key, INT, Auto Increment)
+subject_name (VARCHAR(100))
+course_id (Foreign Key, INT, References Courses(course_id))
+4. Enrollments Table
+enrollment_id (Primary Key, INT, Auto Increment)
+student_id (Foreign Key, INT, References Students(student_id))
+course_id (Foreign Key, INT, References Courses(course_id))
+enrollment_date (DATETIME)
+5. Payments Table
+payment_id (Primary Key, INT, Auto Increment)
+enrollment_id (Foreign Key, INT, References Enrollments(enrollment_id))
+amount (DECIMAL(10, 2))
+payment_date (DATETIME)
+payment_method (ENUM('Credit Card', 'Debit Card', 'Bank Transfer', 'Mobile Payment'))
+payment_status (ENUM('Pending', 'Completed', 'Failed'))
+6. Tutors Table
+tutor_id (Primary Key, INT, Auto Increment)
+first_name (VARCHAR(50))
+last_name (VARCHAR(50))
+email (VARCHAR(100), UNIQUE)
+phone_number (VARCHAR(15))
+specialization (VARCHAR(100))
+hire_date (DATETIME)
+7. Class_Schedules Table
+schedule_id (Primary Key, INT, Auto Increment)
+course_id (Foreign Key, INT, References Courses(course_id))
+tutor_id (Foreign Key, INT, References Tutors(tutor_id))
+class_date (DATETIME)
+class_time (TIME)
+location (VARCHAR(100))
+duration_minutes (INT) // Duration of each class session in minutes
+8. Training_Selection Table
+training_selection_id (Primary Key, INT, Auto Increment)
+student_id (Foreign Key, INT, References Students(student_id))
+course_id (Foreign Key, INT, References Courses(course_id))
+selected_subjects (VARCHAR(255)) // Comma-separated list of subject IDs
+training_start_date (DATETIME)
+training_end_date (DATETIME)
+9. Exam_Practice Table
+exam_practice_id (Primary Key, INT, Auto Increment)
+student_id (Foreign Key, INT, References Students(student_id))
+subject_id (Foreign Key, INT, References Subjects(subject_id))
+practice_date (DATETIME)
+score (DECIMAL(5, 2)) // Score achieved in practice exam
+feedback (TEXT)
+10. Live_Sessions Table
+live_session_id (Primary Key, INT, Auto Increment)
+course_id (Foreign Key, INT, References Courses(course_id))
+tutor_id (Foreign Key, INT, References Tutors(tutor_id))
+session_date (DATETIME)
+session_time (TIME)
+duration_minutes (INT) // Duration of the live session in minutes
+session_link (VARCHAR(255)) // Link to the live session
