@@ -9,6 +9,8 @@ export default function Layout2({
   tdesc,
   fdesc,
   btn,
+  btn_path,
+  reverse
 }) {
   return (
     <>
@@ -16,12 +18,12 @@ export default function Layout2({
         className={`${
           fdesc
             ? ""
-            : "lg:m-[48px_0_0_0] lg:p-0 lg:border-none m-[16px_0_0_0] p-16 rounded-md border-[0.8px] border-[#CED4DA] border-solid"
+            : "lg:m-[48px_0_0_0] lg:p-0 lg:border-none m-[16px_0_0_0] p-4 rounded-md border-[0.8px] border-[#CED4DA] border-solid"
         }`}
       >
         <div className="blockContent">
-          <div className="grid items-center lg:grid-cols-[4fr_6fr] lg:gap-x-16 gap-y-10">
-            <div className="column1 lg:order-none order-1">
+          <div className={`grid items-center ${reverse ? 'lg:grid-cols-[6fr_4fr]' : 'lg:grid-cols-[4fr_6fr]'} lg:gap-x-16 gap-y-10`}>
+            <div className={`column1 lg:order-none order-1 ${reverse ? '!order-2' : ''}`}>
               <div className="">
                 <img
                   src={image}
@@ -30,7 +32,7 @@ export default function Layout2({
                 />
               </div>
             </div>
-            <div className="column2">
+            <div className={`column2 ${reverse ? 'order-1' : ''}`}>
               <div className="mb-6 title">
                 <h4 className="lg:text-left lg:text-[22px] m-0 text-center text-[18px] leading-[1.5] font-bold font-poppins">
                   {title}

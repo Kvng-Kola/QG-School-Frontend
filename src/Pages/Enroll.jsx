@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Component/Header";
 import RealBanner from "../Component/RealBanner";
 import { Link } from "react-router-dom";
 import TabNavs from "../Component/TabNavs";
@@ -13,6 +12,8 @@ import {
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Fragment } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import Header from "../Component/Header";
+import Footer from "../Component/Footer";
 
 export default function Enroll() {
   const enrollData = [
@@ -64,7 +65,7 @@ export default function Enroll() {
   ];
   return (
     <>
-      <Header />
+    <Header />
       <div className="relative">
         {enrollData.map((data) => (
           <RealBanner
@@ -77,7 +78,7 @@ export default function Enroll() {
         <div className="lg:absolute lg:z-10 lg:top-40 lg:w-full lg:p-6 lg:pt-16 lg:px-9 ">
           <div className="qg-container">
             <div className="lg:p-[24px_52px] max-w-[280px] m-[0_auto_24px_auto] grid grid-cols-1 lg:shadow-lg bg-white lg:rounded-[65px]">
-              <Link className="grid lg:grid-cols-[96px_1fr] lg:m-0 items-center justify-center gap-3 transition-all duration-300 ease-custom">
+              <Link to='/register' className="grid lg:grid-cols-[96px_1fr] lg:m-0 items-center justify-center gap-3 transition-all duration-300 ease-custom">
                 <div className="icon flex ">
                   <img
                     className="max-w-[80px] lg:max-w-max "
@@ -310,7 +311,9 @@ export default function Enroll() {
                     <div className="p-[13px_43.2px_13px_24px] relative cursor-pointer group">
                       <Icon
                         icon="weui:arrow-filled"
-                        className={`${open ? 'rotate-90 w-9 h-9' : 'w-9 h-9'} "w-9 h-9 text-[#3983d1] absolute top-[10%] right-[9.6px] " `}
+                        className={`${
+                          open ? "rotate-90 w-9 h-9" : "w-9 h-9"
+                        } "w-9 h-9 text-[#3983d1] absolute top-[10%] right-[9.6px] " `}
                       />
                       <h6 className="lg:text-[14.4px] text-[12.8px] font-bold font-poppins leading-[1.6]">
                         What is a quantum groove School?
@@ -321,12 +324,12 @@ export default function Enroll() {
                     {open && (
                       <DisclosurePanel>
                         <motion.div
-                          initial={{ y: '50px'}} // Initial position
-                          animate={{ y: '0px', }}
+                          initial={{ y: "50px" }} // Initial position
+                          animate={{ y: "0px" }}
                           exit={{
                             y: 0,
                             duration: 1,
-                            scaleX:0
+                            scaleX: 0,
                           }}
                           transition={{
                             duration: 1,
@@ -371,8 +374,357 @@ export default function Enroll() {
               )}
             </Disclosure>
           </div>
+          <div className="mb-2 bg-grey5 rounded-[20.8px] transition-all ease-custom">
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <DisclosureButton as="div">
+                    <div className="p-[13px_43.2px_13px_24px] relative cursor-pointer group">
+                      <Icon
+                        icon="weui:arrow-filled"
+                        className={`${
+                          open ? "rotate-90 w-9 h-9" : "w-9 h-9"
+                        } "w-9 h-9 text-[#3983d1] absolute top-[10%] right-[9.6px] " `}
+                      />
+                      <h6 className="lg:text-[14.4px] text-[12.8px] font-bold font-poppins leading-[1.6]">
+                        Are Bright Star’s charter schools public schools? Do
+                        they cost money to attend?
+                      </h6>
+                    </div>
+                  </DisclosureButton>
+                  <AnimatePresence>
+                    {open && (
+                      <DisclosurePanel>
+                        <motion.div
+                          initial={{ y: "50px" }} // Initial position
+                          animate={{ y: "0px" }}
+                          exit={{
+                            y: 0,
+                            duration: 1,
+                            scaleX: 0,
+                          }}
+                          transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                          }}
+                          className="block-content p-[24px_32px_4px]"
+                        >
+                          <p className="mb-6 leading-[1.6] ">
+                            All of Bright Star’s schools are public schools.
+                            They are 100% tuition free and open to all students.
+                          </p>
+                          <div className="h-3 spacer"></div>
+                        </motion.div>
+                      </DisclosurePanel>
+                    )}
+                  </AnimatePresence>
+                </>
+              )}
+            </Disclosure>
+          </div>
+          <div className="mb-2 bg-grey5 rounded-[20.8px] transition-all ease-custom">
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <DisclosureButton as="div">
+                    <div className="p-[13px_43.2px_13px_24px] relative cursor-pointer group">
+                      <Icon
+                        icon="weui:arrow-filled"
+                        className={`${
+                          open ? "rotate-90 w-9 h-9" : "w-9 h-9"
+                        } "w-9 h-9 text-[#3983d1] absolute top-[10%] right-[9.6px] " `}
+                      />
+                      <h6 className="lg:text-[14.4px] text-[12.8px] font-bold font-poppins leading-[1.6]">
+                        Are there admissions requirements to attend a Bright
+                        Star School?
+                      </h6>
+                    </div>
+                  </DisclosureButton>
+                  <AnimatePresence>
+                    {open && (
+                      <DisclosurePanel>
+                        <motion.div
+                          initial={{ y: "50px" }} // Initial position
+                          animate={{ y: "0px" }}
+                          exit={{
+                            y: 0,
+                            duration: 1,
+                            scaleX: 0,
+                          }}
+                          transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                          }}
+                          className="block-content p-[24px_32px_4px]"
+                        >
+                          <p className="mb-6 leading-[1.6] ">
+                            No. There are no admissions requirements. All
+                            students of all abilities in grades TK - 12 are
+                            eligible to attend.
+                          </p>
+                          <div className="h-3 spacer"></div>
+                        </motion.div>
+                      </DisclosurePanel>
+                    )}
+                  </AnimatePresence>
+                </>
+              )}
+            </Disclosure>
+          </div>
+          <div className="mb-2 bg-grey5 rounded-[20.8px] transition-all ease-custom">
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <DisclosureButton as="div">
+                    <div className="p-[13px_43.2px_13px_24px] relative cursor-pointer group">
+                      <Icon
+                        icon="weui:arrow-filled"
+                        className={`${
+                          open ? "rotate-90 w-9 h-9" : "w-9 h-9"
+                        } "w-9 h-9 text-[#3983d1] absolute top-[10%] right-[9.6px] " `}
+                      />
+                      <h6 className="lg:text-[14.4px] text-[12.8px] font-bold font-poppins leading-[1.6]">
+                        Which grades does Bright Star Schools serve?
+                      </h6>
+                    </div>
+                  </DisclosureButton>
+                  <AnimatePresence>
+                    {open && (
+                      <DisclosurePanel>
+                        <motion.div
+                          initial={{ y: "50px" }} // Initial position
+                          animate={{ y: "0px" }}
+                          exit={{
+                            y: 0,
+                            duration: 1,
+                            scaleX: 0,
+                          }}
+                          transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                          }}
+                          className="block-content p-[24px_32px_4px]"
+                        >
+                          <p className="mb-6 leading-[1.6] ">
+                            We serve students from transitional kindergarten
+                            through 12th grade.
+                          </p>
+                          <div className="h-3 spacer"></div>
+                        </motion.div>
+                      </DisclosurePanel>
+                    )}
+                  </AnimatePresence>
+                </>
+              )}
+            </Disclosure>
+          </div>
+          <div className="mb-2 bg-grey5 rounded-[20.8px] transition-all ease-custom">
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <DisclosureButton as="div">
+                    <div className="p-[13px_43.2px_13px_24px] relative cursor-pointer group">
+                      <Icon
+                        icon="weui:arrow-filled"
+                        className={`${
+                          open ? "rotate-90 w-9 h-9" : "w-9 h-9"
+                        } "w-9 h-9 text-[#3983d1] absolute top-[10%] right-[9.6px] " `}
+                      />
+                      <h6 className="lg:text-[14.4px] text-[12.8px] font-bold font-poppins leading-[1.6]">
+                        Do students with disabilities qualify to enroll at
+                        Bright Star Schools?
+                      </h6>
+                    </div>
+                  </DisclosureButton>
+                  <AnimatePresence>
+                    {open && (
+                      <DisclosurePanel>
+                        <motion.div
+                          initial={{ y: "50px" }} // Initial position
+                          animate={{ y: "0px" }}
+                          exit={{
+                            y: 0,
+                            duration: 1,
+                            scaleX: 0,
+                          }}
+                          transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                          }}
+                          className="block-content p-[24px_32px_4px]"
+                        >
+                          <p className="mb-6 leading-[1.6] ">
+                            Yes. All students of all abilities are welcome to
+                            attend our schools, and we accept students
+                            regardless of learning ability. Approximately 13% of
+                            our students receive Inclusive (Special) Education
+                            services, and all of our students and families
+                            receive support from our counselors.
+                          </p>
+                          <div className="h-3 spacer"></div>
+                        </motion.div>
+                      </DisclosurePanel>
+                    )}
+                  </AnimatePresence>
+                </>
+              )}
+            </Disclosure>
+          </div>
+          <div className="mb-2 bg-grey5 rounded-[20.8px] transition-all ease-custom">
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <DisclosureButton as="div">
+                    <div className="p-[13px_43.2px_13px_24px] relative cursor-pointer group">
+                      <Icon
+                        icon="weui:arrow-filled"
+                        className={`${
+                          open ? "rotate-90 w-9 h-9" : "w-9 h-9"
+                        } "w-9 h-9 text-[#3983d1] absolute top-[10%] right-[9.6px] " `}
+                      />
+                      <h6 className="lg:text-[14.4px] text-[12.8px] font-bold font-poppins leading-[1.6]">
+                        How does Bright Star support its high school graduates?
+                      </h6>
+                    </div>
+                  </DisclosureButton>
+                  <AnimatePresence>
+                    {open && (
+                      <DisclosurePanel>
+                        <motion.div
+                          initial={{ y: "50px" }} // Initial position
+                          animate={{ y: "0px" }}
+                          exit={{
+                            y: 0,
+                            duration: 1,
+                            scaleX: 0,
+                          }}
+                          transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                          }}
+                          className="block-content p-[24px_32px_4px]"
+                        >
+                          <p className="mb-6 leading-[1.6] ">
+                            All of our high school graduates become part of our
+                            Alumni Support and College Success program and
+                            receive up to 6 years of personalized support along
+                            their individual higher education pathway.
+                          </p>
+                          <div className="h-3 spacer"></div>
+                        </motion.div>
+                      </DisclosurePanel>
+                    )}
+                  </AnimatePresence>
+                </>
+              )}
+            </Disclosure>
+          </div>
+          <div className="mb-2 bg-grey5 rounded-[20.8px] transition-all ease-custom">
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <DisclosureButton as="div">
+                    <div className="p-[13px_43.2px_13px_24px] relative cursor-pointer group">
+                      <Icon
+                        icon="weui:arrow-filled"
+                        className={`${
+                          open ? "rotate-90 w-9 h-9" : "w-9 h-9"
+                        } "w-9 h-9 text-[#3983d1] absolute top-[10%] right-[9.6px] " `}
+                      />
+                      <h6 className="lg:text-[14.4px] text-[12.8px] font-bold font-poppins leading-[1.6]">
+                        How do I enroll in a Bright Star School?
+                      </h6>
+                    </div>
+                  </DisclosureButton>
+                  <AnimatePresence>
+                    {open && (
+                      <DisclosurePanel>
+                        <motion.div
+                          initial={{ y: "50px" }} // Initial position
+                          animate={{ y: "0px" }}
+                          exit={{
+                            y: 0,
+                            duration: 1,
+                            scaleX: 0,
+                          }}
+                          transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                          }}
+                          className="block-content p-[24px_32px_4px]"
+                        >
+                          <p className="mb-6 leading-[1.6] ">
+                            To apply to enroll, you may either submit an online
+                            application here, stop by one our campuses’ main
+                            offices to pick up an application form, or contact
+                            our enrollment team by phone at (323) 954-9957
+                            extension 1030, or via email at
+                            enrollment@brightstarschools.org to start an
+                            application or for help with your application
+                          </p>
+                          <div className="h-3 spacer"></div>
+                        </motion.div>
+                      </DisclosurePanel>
+                    )}
+                  </AnimatePresence>
+                </>
+              )}
+            </Disclosure>
+          </div>
+          <div className="mb-2 bg-grey5 rounded-[20.8px] transition-all ease-custom">
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <DisclosureButton as="div">
+                    <div className="p-[13px_43.2px_13px_24px] relative cursor-pointer group">
+                      <Icon
+                        icon="weui:arrow-filled"
+                        className={`${
+                          open ? "rotate-90 w-9 h-9" : "w-9 h-9"
+                        } "w-9 h-9 text-[#3983d1] absolute top-[10%] right-[9.6px] " `}
+                      />
+                      <h6 className="lg:text-[14.4px] text-[12.8px] font-bold font-poppins leading-[1.6]">
+                        Does Bright Star Schools offer online school?
+                      </h6>
+                    </div>
+                  </DisclosureButton>
+                  <AnimatePresence>
+                    {open && (
+                      <DisclosurePanel>
+                        <motion.div
+                          initial={{ y: "50px" }} // Initial position
+                          animate={{ y: "0px" }}
+                          exit={{
+                            y: 0,
+                            duration: 1,
+                            scaleX: 0,
+                          }}
+                          transition={{
+                            duration: 1,
+                            ease: "easeInOut",
+                          }}
+                          className="block-content p-[24px_32px_4px]"
+                        >
+                          <p className="mb-6 leading-[1.6] ">
+                            Bright Star Schools offers in-person instruction on
+                            our campuses. We do not offer online charter school
+                            options. However, we do have a limited Independent
+                            Study Program and families can receive more
+                            information by connecting with a school
+                            administrator.
+                          </p>
+                          <div className="h-3 spacer"></div>
+                        </motion.div>
+                      </DisclosurePanel>
+                    )}
+                  </AnimatePresence>
+                </>
+              )}
+            </Disclosure>
+          </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
