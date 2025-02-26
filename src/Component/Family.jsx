@@ -6,10 +6,10 @@ export default function Family() {
         {
             icon1: 'https://brightstarschools.org/images/content-area-plane-bg-img.svg',
             icon2: 'https://brightstarschools.org/images/content-area-plane-bg-img-2.svg',
-            title: 'Join our Bright Star Family',
-            desc: '“Bright Star Schools helped me in many ways academically and emotionally. Even if I doubted myself, the staff and teachers all encouraged me. I was able to start as a sophomore at UCLA because I’ve taken all the opportunities that Bright Star has given me.”',
-            image: 'https://brightstarschools.org/files/_cache/07c4dc8799aea6795eba751059b484db.jpeg',
-            author: 'Bright Star alumna Kimberly M., UCLA, Class of 2022, Kayne Scholar',
+            title: 'Join Quantum Groove   Family',
+            desc: '“Quantum Groove School is the best! My teachers are so kind, and they make learning fun and exciting. I love the projects we do, the friends I’ve made, and all the cool activities. Every day, I feel happy and excited to come to school!”',
+            image: 'https://img.freepik.com/free-photo/little-boy-with-notebooks_23-2149352360.jpg?t=st=1733411184~exp=1733414784~hmac=f11137dd307d87bf64322b8ee956bb75d5a0f7358084612129e68bcfefaf46ae&w=900',
+            author: 'quantum groove  Class of 2022',
             btn: 'Enroll Today',
         }
     ]

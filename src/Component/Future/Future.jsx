@@ -20,11 +20,7 @@ export default function Future() {
                   <span>Your Future is Bright!</span>
                 </h2>
                 <h5 className="lg:text-[19px] font-bold font-secondary leading-[1.5]">
-                  In Bright Star’s free, public, and joyful schools, we provide
-                  students with strong academics, holistic and inclusive
-                  support, and rich life opportunities beyond the classroom so
-                  they thrive in kindergarten through 12th grade … and far
-                  beyond!
+                At Quantum Groove School, we believe that your future is as limitless as your potential. With a foundation rooted in innovation, creativity, and a passion for learning, you are equipped to thrive in an ever-changing world. Here, we nurture not just academic excellence, but the skills and mindset needed to succeed in any path you choose. The future is bright, and with the knowledge and experiences you’ll gain at Quantum Groove, there’s no limit to what you can achieve.!
                 </h5>
               </div>
             </div>
@@ -40,7 +36,7 @@ export default function Future() {
                   <div
                     className="card-bg"
                     style={{
-                      backgroundImage: `url('https://brightstarschools.org/files/_cache/6633a0b165ddca7d3de711ed83333b42.jpeg')`,
+                      backgroundImage: `url('https://img.freepik.com/free-photo/young-student-sitting-university-library-break-from-studying_496169-1232.jpg?t=st=1733408245~exp=1733411845~hmac=04b0b112eb47911a58eee67f03ea0abed04f77416018329850480230d6d61e35&w=900')`,
                     }}
                   ></div>
                   {isHovered1 ? (
@@ -60,8 +56,7 @@ export default function Future() {
                           </div>
                           <div className="px-3 mb-5">
                             <p className="text-[15px] leading-[1.5] font-bold font-poppins text-white text-center">
-                              From their first day at a Bright Star school, our
-                              students are prepared for success.
+                            Quantum Groove School is dedicated to fostering strong academic excellence.
                             </p>
                           </div>
                           <div className="text-[16px] text-white font-semibold underline">
@@ -98,7 +93,7 @@ export default function Future() {
                   <div
                     className="card-bg"
                     style={{
-                      backgroundImage: `url('https://brightstarschools.org/files/_cache/cf965c719de1f5ee579f6d8bcb1d387f.jpeg')`,
+                      backgroundImage: `url('https://i.pinimg.com/736x/06/db/b4/06dbb4c3991d98e63dd911fd83404df5.jpg')`,
                     }}
                   ></div>
                   {isHovered2 ? (
@@ -118,8 +113,7 @@ export default function Future() {
                           </div>
                           <div className="px-3 mb-5">
                             <p className="text-[15px] leading-[1.5] font-bold font-poppins text-white text-center">
-                              Our talented, dedicated teachers prioritize strong
-                              relationships with our students.
+                            At Quantum Groove School, our talented teachers are the cornerstone of our students’ success. 
                             </p>
                           </div>
                           <div className="text-[16px] text-white font-semibold underline">
@@ -156,7 +150,7 @@ export default function Future() {
                   <div
                     className="card-bg"
                     style={{
-                      backgroundImage: `url('https://brightstarschools.org/files/_cache/43c2d42534009c728919ecf1cd3098dc.jpg')`,
+                      backgroundImage: `url('https://img.freepik.com/premium-photo/african-american-teacher-explaining-new-topic-schoolboy-while-he-sitting-desk_622301-6799.jpg?w=900')`,
                     }}
                   ></div>
                   {isHovered3 ? (
@@ -176,8 +170,7 @@ export default function Future() {
                           </div>
                           <div className="px-3 mb-5">
                             <p className="text-[15px] leading-[1.6] font-bold font-poppins text-white text-center">
-                              Every Bright Star student has a counselor who
-                              knows them and their dreams.
+                            At Quantum Groove School, our dedicated counselors are committed to supporting each student’s personal and academic growth. 
                             </p>
                           </div>
                           <div className="text-[16px] text-white font-semibold underline">
@@ -214,7 +207,7 @@ export default function Future() {
                   <div
                     className="card-bg"
                     style={{
-                      backgroundImage: `url('	https://brightstarschools.org/files/_cache/8e840dcc15de626efb7a993b5ae1ded3.jpg')`,
+                      backgroundImage: `url('https://img.freepik.com/premium-photo/portrait-smiling-african-american-schoolboy-wheelchair-working-desk-class_13339-350646.jpg?w=900')`,
                     }}
                   ></div>
                   {isHovered4 ? (
@@ -234,8 +227,7 @@ export default function Future() {
                           </div>
                           <div className="px-3 mb-5">
                             <p className="text-[14px] leading-[1.7] font-bold font-poppins text-white text-center">
-                              All students of all abilities are welcome, and our
-                              inclusive education program ensures they thrive.
+                            “Quantum Groove School is committed to inclusive education, offering tailored support and resources to empower every learner to thrive and succeed.”
                             </p>
                           </div>
                           <div className="text-[16px] text-white font-semibold underline">
@@ -272,7 +264,7 @@ export default function Future() {
                   <div
                     className="card-bg"
                     style={{
-                      backgroundImage: `url('	https://brightstarschools.org/files/_cache/f915cdc4d3d922c880cc5716cadc7ea0.jpeg')`,
+                      backgroundImage: `url('https://img.freepik.com/free-photo/college-students-different-ethnicities-cramming_23-2149891296.jpg?t=st=1733410128~exp=1733413728~hmac=c6942686953566f45a470eaf6d54cabc85f3c9f358725d7f56b09b9a62f6549c&w=900')`,
                     }}
                   ></div>
                   {isHovered5 ? (
@@ -292,9 +284,7 @@ export default function Future() {
                           </div>
                           <div className="px-3 mb-5">
                             <p className="text-[15px] leading-[1.6] font-bold font-poppins text-white text-center">
-                              Through our “Life Experience Lessons” students
-                              travel nationwide and see limitless possibilities
-                              for their lives.
+                            “Quantum Groove School offers rich life experiences that inspire growth, build character, and prepare students for a dynamic future.”
                             </p>
                           </div>
                           <div className="text-[16px] text-white font-semibold underline">
@@ -331,7 +321,7 @@ export default function Future() {
                   <div
                     className="card-bg"
                     style={{
-                      backgroundImage: `url('https://brightstarschools.org/files/_cache/ae04e315e35c3de6c2f7a35f67ac9985.jpeg')`,
+                      backgroundImage: `url('https://img.freepik.com/free-photo/study-group-african-people_23-2149156389.jpg?t=st=1733410542~exp=1733414142~hmac=ddea812c0fd4faffd537866d0b333196225f2e95c6f072c6c52a85a263b59da1&w=900')`,
                     }}
                   ></div>
                   {isHovered6 ? (
@@ -351,8 +341,7 @@ export default function Future() {
                           </div>
                           <div className="px-3 mb-5">
                             <p className="text-[14px] leading-[1.6] font-bold font-poppins text-white text-center">
-                              We provide up to 6 years of support for our alumni
-                              to succeed in higher education.
+                            “Quantum Groove School provides comprehensive support to ensure every student has access to higher education opportunities and the tools to succeed.”
                             </p>
                           </div>
                           <div className="text-[16px] text-white font-semibold underline">

@@ -7,48 +7,53 @@ export default function Hero() {
   const imageSlider = [
     {
       imageUrl:
-        "https://brightstarschools.org/files/_cache/330776035f2e38b248e85972ad34d677.jpeg",
+        "https://img.freepik.com/free-photo/group-african-kids-learning-together_23-2148892523.jpg?t=st=1732901883~exp=1732905483~hmac=a596bc3949dc11dc13007f9b6325748e6bd5bda004d6e580d564060bff2dbbf2&w=900",
       altText: "",
       title: "Learn with Us!",
       description:
-        "Applications are now open for the 24-25 school year! Apply to enroll in our free, joyful, and supportive public schools today.",
-      sDesc: "Students of all abilities in grades TK - 12 are welcome.",
+        "At Quantum Groove School, we believe that education should be an exciting journey of discovery and growth. Whether you’re a beginner or looking to expand your knowledge, we provide a dynamic, hands-on learning experience designed to inspire and empower. "
+,
       buttonText: "Learn more",
     },
     {
       imageUrl:
-        "https://brightstarschools.org/files/_cache/ffe0b92da6eb56a4873f731bd5666026.png",
+        "https://img.freepik.com/premium-photo/optimistic-young-university-graduates-graduation_255667-9624.jpg?w=900",
       altText: "",
       title: "Triple Degree Graduate!",
       description:
-        "Read more about how Bright Star’s Elias C. graduated with his high school diploma from Stella High Charter Academy and two associates degrees in the same week!",
+        "At Quantum Groove School, we offer a transformative educational experience designed to take you further. Our unique Triple Degree program provides an unparalleled opportunity to earn three prestigious qualifications, all while gaining hands-on experience in a creative, forward-thinking environment.!",
+
       buttonText: "Learn more",
     },
     {
       imageUrl:
-        "https://brightstarschools.org/files/_cache/b5723ee3a41872f2b9d50248ebfe116a.png",
+        "https://img.freepik.com/free-photo/college-students-different-ethnicities-cramming_23-2149891363.jpg?t=st=1732903360~exp=1732906960~hmac=f54e03777623c1859fa88be3cbf04fb104c1daf6f16210c7b9df7881f5ef3154&w=900",
       altText: "",
       title: "Teach with Us!",
       description:
-        "Shine BRIGHT here! We're hiring outstanding educators for the 24-25 school year. Apply today!",
+        "Help us redefine education and be a part of the Quantum Groove community. Teach with us and inspire the future of learning.!",
+
       buttonText: "Learn more",
     },
     {
       imageUrl:
-        "https://brightstarschools.org/files/_cache/4ea542a7be6e6cda09e3fdc2b452ac6e.png",
+        "https://img.freepik.com/premium-photo/education-graduation-people-concept-group-happy-international-graduate-students-mortar-boards-bachelor-gowns-with-diplomas_255667-14236.jpg?w=900",
       altText: "",
       title: "20 Years Bright!",
       description:
-        "Read more about our first 20 years of work in our 20th anniversary impact report.",
+        "Our rich history of academic achievement, combined with a forward-thinking approach, has made us a trusted institution for those seeking a transformative learning experience. As we look to the future, we remain committed to continuing our legacy of excellence and inspiring generations to come.",
+
+
       buttonText: "Learn more",
     },
     {
       imageUrl:
-        "https://brightstarschools.org/files/_cache/491b23df578d9cc371bb8ca9fd30cb5a.jpeg",
+        "https://img.freepik.com/free-photo/three-young-afro-american-female-students-dressed-black-graduation-gown-women-posing-photo_1157-50436.jpg?t=st=1732904247~exp=1732907847~hmac=d881eacc6b95282623b0e031ead78134f1973946bc96065087077b34eb747107&w=900",
       altText: "",
       title: "Twenty Years!",
       description:
-        "Bright Star supports 3,600+ students from kindergarten through higher education. We stand with our students for nearly 20 years.",
+        "Join us in celebrating 20 years of success and discovery at Quantum Groove School—where the journey of learning is endless.",
+
       buttonText: "Learn more",
     },
   ];

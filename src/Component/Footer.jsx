@@ -63,15 +63,10 @@ export default function Footer() {
                 </h3>
                 <div className="[&_p]:text-[13.4px] font-[calibri] ">
                   <p>
-                    Bright Star Schools is a free, public, open enrollment
-                    charter school organization that operates nine schools
-                    across Los Angeles.
+                  “Quantum Groove School is a vibrant learning community dedicated to nurturing curiosity, creativity, and excellence.
                     <br />
                     <br />
-                    Founded in 2003, we provide 3,600+ students in grades TK -
-                    12 with holistic, inclusive support to achieve academic
-                    excellence and grow their unique talents so that they find
-                    joy and fulfillment in higher education, career, and life.
+                    Quantum Groove School was founded with the vision of creating a dynamic and inclusive educational environment that fosters creativity, critical thinking, and a love for learning.  Quantum Groove School has become known for its commitment to academic excellence, supportive faculty, and strong community values, preparing students to succeed both academically and in life.
                   </p>
                 </div>
               </div>
