@@ -1,4 +1,4 @@
-.bg-placeholder {
+/* .bg-placeholder {
   background-color: #e9ecef !important;
   background-image: url("https://brightstarschools.org/images/BSS-V.png");
   background-repeat: no-repeat !important;
@@ -11,7 +11,8 @@
   background-position: center;
   background-size: cover;
   transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 200ms;
-}
+} */
+ 
 .blogItemContent {
   display: flex;
   flex-direction: column;

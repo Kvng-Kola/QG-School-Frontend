@@ -35,16 +35,16 @@ export default function Blog() {
         <div className="px-9 pb-16">
           <div className="qg-container">
             <div className="">
-              <div className="bloglist flex">
+              <div className="bloglist hidden">
                 {currentItems.map((blog) => (
                   <BlogItem
                     key={blog.id}
                     id={blog.id}
+                    image={blog.image}
                     title={blog.title}
                     paragraph={blog.paragraph}
                     date={blog.date}
                     btn={blog.btn}
-                    image={blog.image}
                   />
                 ))}
               </div>

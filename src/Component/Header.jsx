@@ -18,6 +18,10 @@ import { Link } from "react-router-dom";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
+
+
+
 export default function Header() {
   const [hoveredItem, setHoveredItem] = useState(null);
   const handleMouseEnter = (item) => {
@@ -27,45 +31,60 @@ export default function Header() {
   const handleMouseLeave = () => {
     setHoveredItem(null);
   };
+  const validItems = [
+    "schools",
+    "about",
+    "enroll",
+    "program",
+    "alumni",
+    "career",
+    "news",
+  ];
 
   return (
     <>
       <header>
         {/* header Utility */}
         <div className="relative z-[1200] w-full ">
-          <div className="hidden xl:flex justify-between items-center px-4 py-2 relative z-50 bg-white">
-            <div className="flex items-center text-[13px] utility">
-              {/* Utility-right */}
-              <BellIcon className="w-4" />
-              <span className="px-1">24-25 School Year Information</span>
-              <Link className="underline">Learn More</Link>
-            </div>
-            <div className="flex items-center justify-center utility text-[14px]">
-              {/* Utility-Left */}
-              <div className="text-primaryDark300 font-bold px-4">
-                <Link>Donate</Link>
+          <div className="border-b border-solid border-grey2">
+            <div className="hidden xl:flex justify-between items-center px-4 py-2 relative z-50 bg-white">
+              <div className="flex items-center text-[13px] utility">
+                {/* Utility-right */}
+                <BellIcon className="w-4" />
+                <span className="px-1">24-25 School Year Information</span>
+                <Link className="underline">Learn More</Link>
               </div>
-              <div className="">
-                <ul className="flex">
-                  <li className="relative px-4">
-                    <Link>Compliance</Link>
-                  </li>
-                  <li className="relative px-4">
-                    <Link>Staff Resources</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="px-4 relative mr-3 g-translate">
-                <Link className="text-red">Select Language</Link>
-              </div>
-              <div className="">
-                <MagnifyingGlassIcon className="w-4" />
+              <div className="flex items-center justify-center utility text-[14px]">
+                {/* Utility-Left */}
+                <div className="text-primaryDark300 font-bold px-4">
+                  <Link>Donate</Link>
+                </div>
+                <div className="">
+                  <ul className="flex">
+                    <li className="relative px-4">
+                      <Link>Compliance</Link>
+                    </li>
+                    <li className="relative px-4">
+                      <Link>Staff Resources</Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className="px-4 relative mr-3 g-translate">
+                  <Link className="text-red">Select Language</Link>
+                </div>
+                <div className="">
+                  <MagnifyingGlassIcon className="w-4" />
+                </div>
               </div>
             </div>
           </div>
           {/* Navigation */}
           <Disclosure as="nav">
-            <div className="flex items-center justify-between relative min-h-[86px] px-3 py-1 lg:px-4 lg:py-0 bg-Shadow">
+            <div
+              className={`flex items-center justify-between relative min-h-[86px] px-3 py-1 lg:px-4 lg:py-0 ${classNames(
+                validItems.includes(hoveredItem) ? "bg-white" : "bg-Shadow"
+              )}`}
+            >
               {/* School Logo */}
               <div className="">
                 <Link>
@@ -86,7 +105,13 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("schools")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link
+                        className={classNames(
+                          validItems.includes(hoveredItem)
+                            ? "!text-primary"
+                            : ""
+                        )}
+                      >
                         <span>Schools</span>
                       </Link>
                     </li>
@@ -95,7 +120,13 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("about")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link
+                        className={classNames(
+                          validItems.includes(hoveredItem)
+                            ? "!text-primary"
+                            : ""
+                        )}
+                      >
                         <span>About</span>
                       </Link>
                     </li>
@@ -104,7 +135,13 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("enroll")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link
+                        className={classNames(
+                          validItems.includes(hoveredItem)
+                            ? "!text-primary"
+                            : ""
+                        )}
+                      >
                         <span>Enroll</span>
                       </Link>
                     </li>
@@ -113,7 +150,13 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("program")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link
+                        className={classNames(
+                          validItems.includes(hoveredItem)
+                            ? "!text-primary"
+                            : ""
+                        )}
+                      >
                         <span>Program</span>
                       </Link>
                     </li>
@@ -122,7 +165,13 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("alumni")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link
+                        className={classNames(
+                          validItems.includes(hoveredItem)
+                            ? "!text-primary"
+                            : ""
+                        )}
+                      >
                         <span>Alumni</span>
                       </Link>
                     </li>
@@ -131,12 +180,24 @@ export default function Header() {
                       onMouseEnter={() => handleMouseEnter("career")}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link>
+                      <Link
+                        className={classNames(
+                          validItems.includes(hoveredItem)
+                            ? "!text-primary"
+                            : ""
+                        )}
+                      >
                         <span>Careers</span>
                       </Link>
                     </li>
                     <li>
-                      <Link>
+                      <Link
+                        className={classNames(
+                          validItems.includes(hoveredItem)
+                            ? "!text-primary"
+                            : ""
+                        )}
+                      >
                         <span>News</span>
                       </Link>
                     </li>
@@ -144,7 +205,7 @@ export default function Header() {
                 </div>
                 {/* Enroll Button */}
                 <div className="enroll-button flex items-center pl-4 mt-2">
-                  <Link>Enroll Now</Link>
+                  <Link to="/enroll">Enroll Now</Link>
                 </div>
               </div>
               {/* Mobile Menu navigation */}
@@ -172,7 +233,10 @@ export default function Header() {
             </div>
             {/* Mobile Dropdown */}
             <div className="xl:hidden">
-              <DisclosurePanel as="div" className='transition-transform ease-custom '>
+              <DisclosurePanel
+                as="div"
+                className="transition-transform ease-custom "
+              >
                 <div className="backdrop transition-transform ease-custom"></div>
                 <div className="mobile-menu">
                   <div className="mobile-menu-inner">
@@ -549,7 +613,10 @@ export default function Header() {
                   </div>
                 </div>
                 <div className="enroll-button">
-                  <Link className="!bg-white !text-red hover:!bg-red hover:!text-white rounded-full">
+                  <Link
+                    to="/enroll"
+                    className="!bg-white !text-red hover:!bg-red hover:!text-white rounded-full"
+                  >
                     Enroll Now
                   </Link>
                 </div>
@@ -745,7 +812,7 @@ export default function Header() {
               onMouseEnter={() => handleMouseEnter("about")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="qg-container">
+              <div className="qg-container !max-w-[1320px]">
                 <div className="grid_1 grid grid-cols-1 py-9 mb--10">
                   <div className="mainGrid">
                     <div className="subMenuBox p-2 rounded-lg ">
@@ -754,8 +821,13 @@ export default function Header() {
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
-                          <h6 className="mb-3 text-[16px] leading-5">
-                            <Link className="">About Us</Link>
+                          <h6 className="mb-3 ">
+                            <Link
+                              to="/about"
+                              className="text-[16px] leading-5 font-poppins font-bold"
+                            >
+                              About Us
+                            </Link>
                           </h6>
                           <p className="leading-6 ">
                             Learn more about Quantum Groove Schools
@@ -769,8 +841,10 @@ export default function Header() {
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
-                          <h6 className="mb-3 text-[16px] leading-6">
-                            <Link className="">About Us</Link>
+                          <h6 className="mb-3 ">
+                            <Link className="text-[16px] leading-5 font-poppins font-bold">
+                              About Us
+                            </Link>
                           </h6>
                           <p className="leading-5">what Guides our work</p>
                         </div>
@@ -823,7 +897,7 @@ export default function Header() {
               onMouseEnter={() => handleMouseEnter("enroll")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="qg-container">
+              <div className="qg-container !max-w-[1320px]">
                 <div className="grid_1 grid grid-cols-1 py-9 px-0">
                   <div className="mainGrid">
                     <div className="subMenuBox p-2 rounded-lg ">
@@ -832,8 +906,10 @@ export default function Header() {
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
-                          <h6 className="mb-3 text-[16px] leading-5">
-                            <Link className="">About Us</Link>
+                          <h6 className="mb-3 ">
+                            <Link className="text-[16px] leading-5 font-poppins font-bold">
+                              About Us
+                            </Link>
                           </h6>
                           <p className="leading-6 ">
                             Learn more about Quantum Groove Schools
@@ -847,8 +923,10 @@ export default function Header() {
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
-                          <h6 className="mb-3 text-[16px] leading-6">
-                            <Link className="">About Us</Link>
+                          <h6 className="mb-3 ">
+                            <Link className="text-[16px] leading-5 font-poppins font-bold">
+                              Mission, Vision, Values
+                            </Link>
                           </h6>
                           <p className="leading-5">what Guides our work</p>
                         </div>
@@ -876,7 +954,7 @@ export default function Header() {
               onMouseEnter={() => handleMouseEnter("enroll")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="qg-container">
+              <div className="qg-container !max-w-[1320px]">
                 <div className="grid_1 grid grid-cols-1 py-9 px-0">
                   <div className="mainGrid">
                     <div className="subMenuBox p-2 rounded-lg ">
@@ -885,8 +963,10 @@ export default function Header() {
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
-                          <h6 className="mb-3 text-[16px] leading-5">
-                            <Link className="">About Us</Link>
+                          <h6 className="mb-3 ">
+                            <Link className="text-[16px] leading-5 font-poppins font-bold">
+                              About Us
+                            </Link>
                           </h6>
                           <p className="leading-6 ">
                             Learn more about Quantum Groove Schools
@@ -938,7 +1018,7 @@ export default function Header() {
               onMouseEnter={() => handleMouseEnter("alumni")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="qg-container">
+              <div className="qg-container !max-w-[1320px]">
                 <div className="grid_1 grid grid-cols-1 py-9 px-0">
                   <div className="mainGrid">
                     <div className="subMenuBox p-2 rounded-lg ">
@@ -947,8 +1027,10 @@ export default function Header() {
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
-                          <h6 className="mb-3 text-[16px] leading-5">
-                            <Link className="">About Us</Link>
+                          <h6 className="mb-3 ">
+                            <Link className="text-[16px] leading-5 font-poppins font-bold">
+                              About Us
+                            </Link>
                           </h6>
                           <p className="leading-6 ">
                             Learn more about Quantum Groove Schools
@@ -962,8 +1044,10 @@ export default function Header() {
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
-                          <h6 className="mb-3 text-[16px] leading-6">
-                            <Link className="">About Us</Link>
+                          <h6 className="mb-3 ">
+                            <Link className="text-[16px] leading-5 font-poppins font-bold">
+                              About Us
+                            </Link>
                           </h6>
                           <p className="leading-5">what Guides our work</p>
                         </div>
@@ -1000,7 +1084,7 @@ export default function Header() {
               onMouseEnter={() => handleMouseEnter("career")}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="qg-container">
+              <div className="qg-container !max-w-[1320px]">
                 <div className="grid_1 grid grid-cols-1 py-9 px-0">
                   <div className="mainGrid">
                     <div className="subMenuBox p-2 rounded-lg ">
@@ -1009,8 +1093,10 @@ export default function Header() {
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
-                          <h6 className="mb-3 text-[16px] leading-5">
-                            <Link className="">About Us</Link>
+                          <h6 className="mb-3 ">
+                            <Link className="text-[16px] leading-5 font-poppins font-bold">
+                              About Us
+                            </Link>
                           </h6>
                           <p className="leading-6 ">
                             Learn more about Quantum Groove Schools
@@ -1024,8 +1110,10 @@ export default function Header() {
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
-                          <h6 className="mb-3 text-[16px] leading-6">
-                            <Link className="">About Us</Link>
+                          <h6 className="mb-3 ">
+                            <Link className="text-[16px] leading-5 font-poppins font-bold">
+                              About Us
+                            </Link>
                           </h6>
                           <p className="leading-5">what Guides our work</p>
                         </div>

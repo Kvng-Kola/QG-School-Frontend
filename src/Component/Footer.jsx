@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function () {
+export default function Footer() {
   return (
     <>
       <div className="">
@@ -61,7 +61,7 @@ export default function () {
                 <h3 className="mb-4 text-[14.4px] lg:text-[17px] font-poppins font-bold">
                   About Bright Star
                 </h3>
-                <div className="text-[12px] font-[calibri] ">
+                <div className="[&_p]:text-[13.4px] font-[calibri] ">
                   <p>
                   “Quantum Groove School is a vibrant learning community dedicated to nurturing curiosity, creativity, and excellence.
                     <br />
@@ -74,7 +74,7 @@ export default function () {
                 <h3 className="mb-4 text-[14.4px] lg:text-[17px] font-poppins font-bold">
                   Contact Us
                 </h3>
-                <div className="text-[12px] font-[calibri] ">
+                <div className="[&_p]:text-[13.4px] font-[calibri] ">
                   <p className="mb-4">
                     <strong>Mailing Address</strong> <br />
                     5101 Santa Monica Blvd Ste 8, <strong>PMB 93</strong> <br />
@@ -95,7 +95,7 @@ export default function () {
                 <h3 className="mb-4 text-[14.4px] lg:text-[17px] font-poppins font-bold">
                   Quick links
                 </h3>
-                <div className="text-[12px] font-[calibri] ">
+                <div className="[&_a]:text-[13px] font-[calibri] ">
                   <p>
                     <Link className="font-bold">Board Meeting Agendas</Link>
                   </p>
