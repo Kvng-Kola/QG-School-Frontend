@@ -269,7 +269,18 @@ img {
   box-shadow: -0.8px 13.6px 20.8px -5.6px rgba(0, 0, 0, 0.27);
 }
 .bg_imageUrl {
-  background-image: url("https://brightstarschools.org/files/_cache/3c0b59179a63d1f19509ba035e234ca1.jpg");
+  background-image: url("https://i.pinimg.com/736x/22/0d/94/220d94d6f498b0f9172943740d11ac21.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 185px;
+  border-radius: 8px;
+}
+
+
+.bg_imageUrl1 {
+  background-image: url("https://i.pinimg.com/736x/94/8c/92/948c9265a22e8915e20853f649cfdd6e.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
