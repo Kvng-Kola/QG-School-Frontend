@@ -641,8 +641,8 @@ export default function Header() {
                         </div>
                         <Link>
                           <div className="school name hover:underline font-bold text-[12px]">
-                            <p className="leading-5">Stella Academy</p>
-                            <p className="leading-5">Charter Academy</p>
+                            <p className="leading-5">Quantum Grove</p>
+                            <p className="leading-5"> Academy</p>
                           </div>
                         </Link>
                       </div>
@@ -658,8 +658,8 @@ export default function Header() {
                         </div>
                         <Link>
                           <div className="school name hover:underline font-bold text-[12px]">
-                            <p className="leading-5">Stella Academy</p>
-                            <p className="leading-5">Charter Academy</p>
+                            <p className="leading-5">Quantum Grove</p>
+                            <p className="leading-5">High school</p>
                           </div>
                         </Link>
                       </div>
@@ -675,8 +675,8 @@ export default function Header() {
                         </div>
                         <Link>
                           <div className="school name hover:underline font-bold text-[12px]">
-                            <p className="leading-5">Stella Academy</p>
-                            <p className="leading-5">Charter Academy</p>
+                            <p className="leading-5">Quantum Grove</p>
+                            <p className="leading-5">University</p>
                           </div>
                         </Link>
                       </div>
@@ -700,8 +700,8 @@ export default function Header() {
                         </div>
                         <Link>
                           <div className="school name hover:underline font-bold text-[12px]">
-                            <p className="leading-5">Stella Academy</p>
-                            <p className="leading-5">Charter Academy</p>
+                            <p className="leading-5">Quantum Grove</p>
+                            <p className="leading-5">Kids Academy</p>
                           </div>
                         </Link>
                       </div>
@@ -717,8 +717,8 @@ export default function Header() {
                         </div>
                         <Link>
                           <div className="school name hover:underline font-bold text-[12px]">
-                            <p className="leading-5">Stella Academy</p>
-                            <p className="leading-5">Charter Academy</p>
+                            <p className="leading-5">Quantum Grove</p>
+                            <p className="leading-5">International School</p>
                           </div>
                         </Link>
                       </div>
@@ -734,8 +734,8 @@ export default function Header() {
                         </div>
                         <Link>
                           <div className="school name hover:underline font-bold text-[12px]">
-                            <p className="leading-5">Stella Academy</p>
-                            <p className="leading-5">Charter Academy</p>
+                            <p className="leading-5">Quantum Grove</p>
+                            <p className="leading-5">Institute of Technology</p>
                           </div>
                         </Link>
                       </div>
@@ -759,8 +759,8 @@ export default function Header() {
                         </div>
                         <Link>
                           <div className="school name hover:underline font-bold text-[12px]">
-                            <p className="leading-5 ">Stella Academy</p>
-                            <p className="leading-5 ">Charter Academy</p>
+                            <p className="leading-5 ">Quantum Grove</p>
+                            <p className="leading-5 ">Foundation school</p>
                           </div>
                         </Link>
                       </div>
@@ -776,8 +776,8 @@ export default function Header() {
                         </div>
                         <Link>
                           <div className="school name hover:underline font-bold text-[12px]">
-                            <p className="leading-5">Stella Academy</p>
-                            <p className="leading-5">Charter Academy</p>
+                            <p className="leading-5">Quantum Grove</p>
+                            <p className="leading-5">College</p>
                           </div>
                         </Link>
                       </div>
@@ -793,8 +793,8 @@ export default function Header() {
                         </div>
                         <Link>
                           <div className="school name hover:underline font-bold text-[12px]">
-                            <p className="leading-5">Stella Academy</p>
-                            <p className="leading-5">Charter Academy</p>
+                            <p className="leading-5">Quantum Grove</p>
+                            <p className="leading-5">Global university</p>
                           </div>
                         </Link>
                       </div>
@@ -837,7 +837,7 @@ export default function Header() {
                     </div>
                     <div className="subMenuBox p-2 rounded-lg ">
                       <div className="subMenuImage mb-6">
-                        <div className="bg_imageUrl"></div>
+                        <div className="bg_imageUrl1"></div>
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
@@ -919,7 +919,7 @@ export default function Header() {
                     </div>
                     <div className="subMenuBox p-2 rounded-lg ">
                       <div className="subMenuImage mb-6">
-                        <div className="bg_imageUrl"></div>
+                        <div className="bg_imageUrl1"></div>
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
@@ -976,7 +976,7 @@ export default function Header() {
                     </div>
                     <div className="subMenuBox p-2 rounded-lg ">
                       <div className="subMenuImage mb-6">
-                        <div className="bg_imageUrl"></div>
+                        <div className="bg_imageUrl1"></div>
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
@@ -1040,7 +1040,7 @@ export default function Header() {
                     </div>
                     <div className="subMenuBox p-2 rounded-lg ">
                       <div className="subMenuImage mb-6">
-                        <div className="bg_imageUrl"></div>
+                        <div className="bg_imageUrl1"></div>
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">
@@ -1106,7 +1106,7 @@ export default function Header() {
                     </div>
                     <div className="subMenuBox p-2 rounded-lg ">
                       <div className="subMenuImage mb-6">
-                        <div className="bg_imageUrl"></div>
+                        <div className="bg_imageUrl1"></div>
                       </div>
                       <div className="subMenuDescription">
                         <div className="subMenucontent">

@@ -59,7 +59,7 @@ export default function Footer() {
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-4 md:grid-cols-2 md:gap-y-10 font-[calibri]">
               <div className="column1">
                 <h3 className="mb-4 text-[14.4px] lg:text-[17px] font-poppins font-bold">
-                  About Bright Star
+                  About Qunatum groove
                 </h3>
                 <div className="[&_p]:text-[13.4px] font-[calibri] ">
                   <p>
@@ -76,18 +76,19 @@ export default function Footer() {
                 </h3>
                 <div className="[&_p]:text-[13.4px] font-[calibri] ">
                   <p className="mb-4">
-                    <strong>Mailing Address</strong> <br />
-                    5101 Santa Monica Blvd Ste 8, <strong>PMB 93</strong> <br />
-                    Los Angeles, CA 90029
+                    <strong>Email Address</strong> <br />
+                    <strong>kolawole015@gmail.com</strong> <br />
+                    <strong>Adeosunadeyanju@gmail.com</strong>
+            
                   </p>
                   <p className="mb-4">
                     <strong>Physical Address</strong> <br />
-                    600 S. La Fayette Park Place <br />
-                    Los Angeles, CA 90057
+                    11 Adeshina street of <br />
+                    shakin cresent
                   </p>
                   <p>
-                    Phone: (323) 954-9957 <br />
-                    Fax: (323) 978-2423
+                    Phone:09014960362 <br /> 
+                    phone 2:08068005663
                   </p>
                 </div>
               </div>

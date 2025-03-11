@@ -15,12 +15,7 @@ export default function OurSchool() {
                     Our Schools
                   </h3>
                   <p className="font-poppins text-[14px] leading-5">
-                    In the Los Angeles communities of West Adams/Baldwin Village
-                    and South Los Angeles, Koreatown, and the San Fernando
-                    Valley, we operate joyful, high-quality, tuition-free
-                    charter public elementary, middle, and high schools that
-                    serve over 3,600 students from transitional kindergarten
-                    through 12th grade.
+                  Quantum Grove School is a hub of learning, innovation, and growth, where students are encouraged to explore their full potential. Our school is committed to academic excellence, character development, and holistic education. With a dynamic curriculum, dedicated educators, and a nurturing environment, we foster creativity, critical thinking, and lifelong learning. At Quantum Grove School, we prepare students to become confident, responsible, and future-ready individuals who can thrive in an ever-evolving world.
                   </p>
                 </div>
               </div>
@@ -29,7 +24,7 @@ export default function OurSchool() {
                 <div className="columns">
                   <div className="text-center font-secondary">
                     <p className="text-[15px]">
-                      <strong>West Adams/Baldwin Village</strong>
+                      <strong>Canada</strong>
                     </p>
                   </div>
                   <div className="h-7"></div>
@@ -47,11 +42,11 @@ export default function OurSchool() {
                         <div className="tiltephone w-28 text-[12px] font-bold font-secondary">
                           <p>
                             <Link>
-                              Stella Elementary <br /> Charter Academy
+                              Quantum grove <br /> Academy
                             </Link>
                           </p>
                           <p>
-                            <Link className="underline">(213) 340-6700</Link>
+                            <Link className="underline">(+1) 340-6700</Link>
                           </p>
                         </div>
                         <div className="flex items-center text-[13.5px] text-nowrap">
@@ -76,11 +71,11 @@ export default function OurSchool() {
                         <div className="tiltephone w-28 text-[12px] font-bold font-secondary">
                           <p>
                             <Link>
-                              Stella Middle <br /> Charter Academy
+                                Quantum Grove <br /> High school
                             </Link>
                           </p>
                           <p>
-                            <Link className="underline">(213) 340-6700</Link>
+                            <Link className="underline">(+1) 340-6700</Link>
                           </p>
                         </div>
                         <div className="flex items-center text-[13.5px] text-nowrap">
@@ -105,11 +100,11 @@ export default function OurSchool() {
                         <div className="tiltephone w-28 text-[12px] font-bold font-secondary">
                           <p>
                             <Link>
-                              Stella High <br /> Charter Academy
+                              Qunatum Grove <br /> University
                             </Link>
                           </p>
                           <p>
-                            <Link className="underline">(213) 340-6700</Link>
+                            <Link className="underline">(+1) 340-6700</Link>
                           </p>
                         </div>
                         <div className="flex items-center text-[13.5px] text-nowrap">
@@ -124,7 +119,7 @@ export default function OurSchool() {
                 <div className="columns">
                   <div className="text-center font-secondary">
                     <p className="text-[15px]">
-                      <strong>Koreatown Schools</strong>
+                      <strong>Singapore</strong>
                     </p>
                   </div>
                   <div className="h-7"></div>
@@ -142,11 +137,11 @@ export default function OurSchool() {
                         <div className="tiltephone w-28 text-[12px] font-bold font-secondary">
                           <p>
                             <Link>
-                              Stella Elementary <br /> Charter Academy
+                              Quantym Groove <br /> Kids Academy
                             </Link>
                           </p>
                           <p>
-                            <Link className="underline">(213) 340-6700</Link>
+                            <Link className="underline">(+65) 340-6700</Link>
                           </p>
                         </div>
                         <div className="flex items-center text-[13.5px] text-nowrap">
@@ -171,11 +166,11 @@ export default function OurSchool() {
                         <div className="tiltephone w-28 text-[12px] font-bold font-secondary">
                           <p>
                             <Link>
-                              Stella Middle <br /> Charter Academy
+                          Qunatum Grove <br /> International School
                             </Link>
                           </p>
                           <p>
-                            <Link className="underline">(213) 340-6700</Link>
+                            <Link className="underline">(+65) 340-6700</Link>
                           </p>
                         </div>
                         <div className="flex items-center text-[13.5px] text-nowrap">
@@ -200,11 +195,11 @@ export default function OurSchool() {
                         <div className="tiltephone w-28 text-[12px] font-bold font-secondary">
                           <p>
                             <Link>
-                              Stella High <br /> Charter Academy
+                              Quantum Grove<br /> Institute of Technology
                             </Link>
                           </p>
                           <p>
-                            <Link className="underline">(213) 340-6700</Link>
+                            <Link className="underline">(+65) 340-6700</Link>
                           </p>
                         </div>
                         <div className="flex items-center text-[13.5px] text-nowrap">
@@ -219,7 +214,7 @@ export default function OurSchool() {
                 <div className="columns">
                   <div className="text-center font-secondary">
                     <p className="text-[15px]">
-                      <strong>San Fernando Valley</strong>
+                      <strong>Australia</strong>
                     </p>
                   </div>
                   <div className="h-7"></div>
@@ -237,11 +232,11 @@ export default function OurSchool() {
                         <div className="tiltephone w-28 text-[12px] font-bold font-secondary">
                           <p>
                             <Link>
-                              Stella Elementary <br /> Charter Academy
+                              Quantum Grove <br /> Foundation school
                             </Link>
                           </p>
                           <p>
-                            <Link className="underline">(213) 340-6700</Link>
+                            <Link className="underline">(+61) 340-6700</Link>
                           </p>
                         </div>
                         <div className="flex items-center text-[13.5px] text-nowrap">
@@ -266,11 +261,11 @@ export default function OurSchool() {
                         <div className="tiltephone w-28 text-[12px] font-bold font-secondary">
                           <p>
                             <Link>
-                              Stella Middle <br /> Charter Academy
+                              Quantum Grove  <br /> College
                             </Link>
                           </p>
                           <p>
-                            <Link className="underline">(213) 340-6700</Link>
+                            <Link className="underline">(+61) 340-6700</Link>
                           </p>
                         </div>
                         <div className="flex items-center text-[13.5px] text-nowrap">
@@ -295,11 +290,11 @@ export default function OurSchool() {
                         <div className="tiltephone w-28 text-[12px] font-bold font-secondary">
                           <p className="">
                             <Link>
-                              Stella High <br /> Charter Academy
+                              Quantum Grove <br /> Global University
                             </Link>
                           </p>
                           <p>
-                            <Link className="underline">(213) 340-6700</Link>
+                            <Link className="underline">(+61) 340-6700</Link>
                           </p>
                         </div>
                         <div className="flex items-center text-[13.5px] text-nowrap">
