@@ -23,9 +23,7 @@ export default function InputField({
           {...inputProps}
         />
         {error?.message && (
-          <p className="text-red text-xs">
-            {error.message.toString()}
-          </p>
+          <p className="text-red text-[10px]">{error.message.toString()}</p>
         )}
       </div>
     </>

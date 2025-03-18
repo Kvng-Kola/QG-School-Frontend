@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { examsData, lessonsData, role } from "../../Data";
 import FormModal from "../../components/FormModal";
 import axios from "axios";
+import Loading from "../../components/Loading";
 
 const columns = [
   {
@@ -66,14 +67,17 @@ export default function ExamListpage() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
   const itemsPerPage = 5;
 
   // Fetch data from the backend API
   useEffect(() => {
     async function ExamsData() {
       try {
+        setLoading(true);
         const response = await axios.get(`http://localhost:8000/api/examList`);
         setData(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching all exam List", error);
         throw error;
@@ -132,6 +136,7 @@ export default function ExamListpage() {
           </div>
         </div>
         {/* List */}
+        {loading && <Loading />}
         <Table columns={columns} renderRow={renderRow} data={currentPosts} />
         {/* Pagination */}
         <Pagination

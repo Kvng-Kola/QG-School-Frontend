@@ -8,8 +8,8 @@ import Table from "../../components/Table";
 import { Link } from "react-router-dom";
 import { role, teachersData } from "../../Data";
 import FormModal from "../../components/FormModal";
-import { apiService } from "../../services/apiService";
 import axios from "axios";
+import Loading from "../../components/Loading";
 
 const columns = [
   {
@@ -99,16 +99,19 @@ export default function TeacherListpage() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
   const itemsPerPage = 5;
 
   // Fetch data from the backend API
   useEffect(() => {
     async function teachersData() {
       try {
+        setLoading(true);
         const response = await axios.get(
           `http://localhost:8000/api/teachersList`
         );
         setData(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching all Teachers List", error);
         throw error;
@@ -143,7 +146,7 @@ export default function TeacherListpage() {
     <DLayout>
       <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
         {/* Top */}
-        <div className="flex  items-center justify-between">
+        <div className="flex items-center justify-between">
           <h1 className="hidden sm:block font-semibold text-lg">
             All Teachers
           </h1>
@@ -168,6 +171,7 @@ export default function TeacherListpage() {
           </div>
         </div>
         {/* List */}
+        {loading && <Loading />}
         <Table columns={columns} renderRow={renderRow} data={currentPosts} />
         {/* Pagination */}
         <Pagination

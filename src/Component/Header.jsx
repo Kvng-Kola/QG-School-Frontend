@@ -19,9 +19,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-
-
-
 export default function Header() {
   const [hoveredItem, setHoveredItem] = useState(null);
   const handleMouseEnter = (item) => {
@@ -89,8 +86,8 @@ export default function Header() {
               <div className="">
                 <Link>
                   <img
-                    className='lg:max-w-[160px] lg:max-h-[80px] max-w-[135px] max-h-[56px]'
-                     src="https://brightstarschools.org/images/bss-logo.svg"
+                    className="lg:max-w-[160px] lg:max-h-[80px] max-w-[135px] max-h-[56px]"
+                    src="https://brightstarschools.org/images/bss-logo.svg"
                     alt=""
                   />
                 </Link>
@@ -209,8 +206,8 @@ export default function Header() {
                 </div>
               </div>
               {/* Mobile Menu navigation */}
-              <div className="xl:hidden block">
-                <DisclosureButton className="group relative z-[1200]">
+              <div className="xl:hidden block ">
+                <DisclosureButton className="group relative z-[1200] overflow-hidden">
                   <span className="sr-only">Open main menu</span>
                   <div className="flex items-center justify-center gap-1">
                     <Bars3Icon

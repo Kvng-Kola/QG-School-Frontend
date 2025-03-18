@@ -23,7 +23,7 @@ const schema = z.object({
   img: z.instanceof(File, { message: "Image is required" }),
 });
 
-export default function TeacherForm({ type, data }) {
+export default function TeacherForm({ type, data, setOpen }) {
   const {
     register,
     handleSubmit,
@@ -136,7 +136,8 @@ export default function TeacherForm({ type, data }) {
               <img
                 src="https://media.istockphoto.com/id/1222357475/vector/image-preview-icon-picture-placeholder-for-website-or-ui-ux-design-vector-illustration.jpg?s=612x612&w=0&k=20&c=KuCo-dRBYV7nz2gbk4J9w1WtTAgpTdznHu55W9FjimE="
                 alt=""
-                width={28} height={28} 
+                width={28}
+                height={28}
               />
               <span>Upload a photo</span>
             </label>

@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { eventsData, role } from "../../Data";
 import FormModal from "../../components/FormModal";
 import axios from "axios";
+import Loading from "../../components/Loading";
 
 const columns = [
   {
@@ -72,16 +73,19 @@ export default function EventListpage() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
   const itemsPerPage = 5;
 
   // Fetch data from the backend API
   useEffect(() => {
     async function EventsData() {
       try {
+        setLoading(true);
         const response = await axios.get(
           `http://localhost:8000/api/EventsList`
         );
         setData(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching all event List", error);
         throw error;
@@ -134,6 +138,7 @@ export default function EventListpage() {
           </div>
         </div>
         {/* List */}
+        {loading && <Loading />}
         <Table columns={columns} renderRow={renderRow} data={currentPosts} />
         {/* Pagination */}
         <Pagination

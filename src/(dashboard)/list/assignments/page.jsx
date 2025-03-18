@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { assignmentsData, examsData, lessonsData, role } from "../../Data";
 import FormModal from "../../components/FormModal";
 import axios from "axios";
+import Loading from "../../components/Loading";
 
 const columns = [
   {
@@ -66,16 +67,19 @@ export default function AssignmentListpage() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
   const itemsPerPage = 5;
 
   // Fetch data from the backend API
   useEffect(() => {
     async function AssignmentData() {
       try {
+        setLoading(true);
         const response = await axios.get(
           `http://localhost:8000/api/assignmentList`
         );
         setData(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching all assignment List", error);
         throw error;
@@ -136,6 +140,7 @@ export default function AssignmentListpage() {
           </div>
         </div>
         {/* List */}
+        {loading && <Loading />}
         <Table columns={columns} renderRow={renderRow} data={currentPosts} />
         {/* Pagination */}
         <Pagination
