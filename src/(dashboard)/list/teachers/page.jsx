@@ -7,7 +7,7 @@ import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
 import { Link } from "react-router-dom";
 import { role, teachersData } from "../../Data";
-import FormModal from "../../components/FormModal";
+import FormContainer from "../../components/formContainer";
 import axios from "axios";
 import Loading from "../../components/Loading";
 
@@ -73,11 +73,11 @@ const renderRow = (item) => {
       <td className="hidden md:table-cell">
         {item.classes.map((classItem) => classItem.name).join(",")}
       </td>
-      <td className="hidden lg:table-cell">{item.phone1}</td>
+      <td className="hidden lg:table-cell">{item.phone}</td>
       <td className="hidden lg:table-cell">{item.address}</td>
       <td>
         <div className="flex items-center gap-2">
-          <Link to={`/list/teachers`}>
+          <Link to={`/teacher/${item.id}`}>
             <button className="w-7 h-7 flex items-center justify-center rounded-full bg-lamaSky">
               <Icon
                 icon="carbon:view"
@@ -88,7 +88,7 @@ const renderRow = (item) => {
             </button>
           </Link>
           {role === "admin" && (
-            <FormModal table={"teacher"} type={"delete"} id={item.id} />
+            <FormContainer table={"teacher"} type={"delete"} id={item.id} />
           )}
         </div>
       </td>
@@ -165,7 +165,7 @@ export default function TeacherListpage() {
                 />
               </button>
               {role === "admin" && (
-                <FormModal table={"teacher"} type={"create"} />
+                <FormContainer table={"teacher"} type={"create"} />
               )}
             </div>
           </div>

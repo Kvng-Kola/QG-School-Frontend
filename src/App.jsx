@@ -45,11 +45,11 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/enroll" element={<Enroll />} />
           {/* Admin Dashboard Routes */}
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/dashboard" element={<AdminPage />} />
           {/* list page for teachers students and parents and subjects */}
           <Route path="/teacherslist" element={<TeacherListpage />} />
-          <Route path="/list/teachers" element={<SingleTeacherPage />} />
-          <Route path="/list/students" element={<SingleStudentPage />} />
+          <Route path="/teacher/:id" element={<SingleTeacherPage />} />
+          <Route path="/student/:id" element={<SingleStudentPage />} />
           <Route path="/studentslist" element={<StudentListpage />} />
           <Route path="/parentslist" element={<ParentListpage />} />
           <Route path="/subjectslist" element={<SubjectListpage />} />

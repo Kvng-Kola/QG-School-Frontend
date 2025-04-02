@@ -10,6 +10,7 @@ import { classesData, role } from "../../Data";
 import FormModal from "../../components/FormModal";
 import axios from "axios";
 import Loading from "../../components/Loading";
+import FormContainer from "../../components/formContainer";
 
 const columns = [
   {
@@ -53,8 +54,8 @@ const renderRow = (item) => {
         <div className="flex items-center gap-2">
           {role === "admin" && (
             <>
-              <FormModal table="class" type="update" data={item} />
-              <FormModal table="class" type="delete" id={item.id} />
+              <FormContainer table="class" type="update" data={item} />
+              <FormContainer table="class" type="delete" id={item.id} />
             </>
           )}
         </div>
@@ -126,7 +127,9 @@ export default function ClassListpage() {
                   style={{ color: "#000" }}
                 />
               </button>
-              {role === "admin" && <FormModal table="class" type="create" />}
+              {role === "admin" && (
+                <FormContainer table="class" type="create" />
+              )}
             </div>
           </div>
         </div>

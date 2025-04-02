@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import InputField from "../InputFields";
-import { subjectSchema } from "../../formValidationSchema";
-import { createSubject, UpdateSubject } from "../../action";
+import { classSchema } from "../../formValidationSchema";
+import { createClass, UpdateClass } from "../../action";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export default function SubjectForm({ type, data, setopen, relatedData }) {
-  const teachers = relatedData;
+export default function ClassForm({ type, data, setopen, relatedData }) {
   const [state, setState] = useState({
     success: false,
     error: false,
@@ -19,23 +18,26 @@ export default function SubjectForm({ type, data, setopen, relatedData }) {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(subjectSchema),
+    resolver: zodResolver(classSchema),
   });
   const onsubmit = handleSubmit((data) => {
     if (type === "create") {
-      createSubject(data, setState, state);
+      createClass(data, setState, state);
     } else {
-      UpdateSubject(data, setState, state);
+      UpdateClass(data, setState, state);
     }
   });
   useEffect(() => {
     if (state.success === true) {
-      toast(`Subject has been ${type === "create" ? "created" : "updated"}`, {
-        autoClose: 2000,
-        onClose: () => {
-          navigate(0);
-        },
-      });
+      toast.success(
+        `Class has been ${type === "create" ? "created" : "updated"}`,
+        {
+          autoClose: 3000,
+          onClose: () => {
+            navigate(0);
+          },
+        }
+      );
       setopen(false);
     }
   }, [state]);
@@ -44,13 +46,10 @@ export default function SubjectForm({ type, data, setopen, relatedData }) {
       <form className="flex flex-col gap-5" onSubmit={onsubmit}>
         <h1 className="text-xl font-semibold">
           {" "}
-          {type === "create" ? "Create a new subject" : "Update a new subject"}
+          {type === "create" ? "Create a new class" : "Update a new class"}
         </h1>
         {state.error && (
           <span className="text-rose-500 text-xs">Something went wrong</span>
-        )}
-        {state.success && (
-          <span className="text-rose-500 text-xs">Succesfully</span>
         )}
         <div className="flex justify-between flex-wrap gap-3">
           {data && (
@@ -64,36 +63,54 @@ export default function SubjectForm({ type, data, setopen, relatedData }) {
             />
           )}
           <InputField
-            label="Subject name"
+            label="class name"
             name="name"
             defaultValue={data?.name}
             register={register}
             error={errors?.name}
           />
           <InputField
-            label="Class"
-            name="level"
-            defaultValue={data?.level}
+            label="Capacity"
+            name="capacity"
+            defaultValue={data?.capacity}
             register={register}
-            error={errors?.level}
+            error={errors?.capacity}
           />
           <div className="flex flex-col gap-2 w-full md:w-1/4">
-            <label className="text-xs text-gray-500">Teachers</label>
+            <label className="text-xs text-gray-500">Supervisors</label>
             <select
-              multiple
               className="ring-[1.5px] ring-gray-300 p-1 rounded-md text-sm w-full"
-              {...register("teacher")}
+              {...register("teacherId")}
               defaultValue={data?.teacher}
             >
-              {teachers.map((teacher) => (
-                <option key={teacher.id} value={teacher.id}>
-                  {teacher.firstname + " " + teacher.lastname}
+              {relatedData.map((data, id) => (
+                <option key={id} value={data.teachers.id}>
+                  {data.teachers.firstname}
                 </option>
               ))}
             </select>
-            {errors.teachers?.message && (
+            {errors.teacherId?.message && (
               <p className="text-xs text-red-400">
-                {errors.teachers.message.toString()}
+                {errors.teacherId.message.toString()}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col gap-2 w-full md:w-1/4">
+            <label className="text-xs text-gray-500">Grade</label>
+            <select
+              className="ring-[1.5px] ring-gray-300 p-1 rounded-md text-sm w-full"
+              {...register("levelId")}
+              defaultValue={data?.levelId}
+            >
+              {relatedData.map((grade, id) => (
+                <option key={id} value={grade.level.id}>
+                  {grade.level.id}
+                </option>
+              ))}
+            </select>
+            {errors.levelId?.message && (
+              <p className="text-xs text-red-400">
+                {errors.levelId.message.toString()}
               </p>
             )}
           </div>

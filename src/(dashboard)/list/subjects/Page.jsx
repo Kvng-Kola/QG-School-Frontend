@@ -7,9 +7,9 @@ import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
 import { Link } from "react-router-dom";
 import { role, subjectsData } from "../../Data";
-import FormModal from "../../components/FormModal";
 import axios from "axios";
 import Loading from "../../components/Loading";
+import FormContainer from "../../components/formContainer";
 
 const columns = [
   {
@@ -43,8 +43,8 @@ const renderRow = (item) => {
         <div className="flex items-center gap-2">
           {role === "admin" && (
             <>
-              <FormModal table={"subject"} type={"update"} data={item} />
-              <FormModal table={"subject"} type={"delete"} id={item.id} />
+              <FormContainer table={"subject"} type={"update"} data={item} />
+              <FormContainer table={"subject"} type={"delete"} id={item.id} />
             </>
           )}
         </div>
@@ -70,7 +70,7 @@ export default function SubjectListpage() {
         setData(response.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching all Teachers List", error);
+        console.error("Error fetching all Subjects List", error);
         throw error;
       }
     }
@@ -119,7 +119,9 @@ export default function SubjectListpage() {
                   style={{ color: "#000" }}
                 />
               </button>
-              {role === "admin" && <FormModal table="subject" type="create" />}
+              {role === "admin" && (
+                <FormContainer table="subject" type="create" />
+              )}
             </div>
           </div>
         </div>

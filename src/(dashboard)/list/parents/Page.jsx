@@ -10,6 +10,7 @@ import { parentsData, role } from "../../Data";
 import FormModal from "../../components/FormModal";
 import axios from "axios";
 import Loading from "../../components/Loading";
+import FormContainer from "../../components/formContainer";
 
 const columns = [
   {
@@ -58,8 +59,8 @@ const renderRow = (item) => {
         <div className="flex items-center gap-2">
           {role === "admin" && (
             <>
-              <FormModal table={"parent"} type={"update"} data={item} />
-              <FormModal table={"parent"} type={"delete"} id={item.id} />
+              <FormContainer table={"parent"} type={"update"} data={item} />
+              <FormContainer table={"parent"} type={"delete"} id={item.id} />
             </>
           )}
         </div>
@@ -132,7 +133,7 @@ export default function ParentListpage() {
                 />
               </button>
               {role === "admin" && (
-                <FormModal table={"parent"} type={"create"} />
+                <FormContainer table={"parent"} type={"create"} />
               )}
             </div>
           </div>

@@ -11,7 +11,7 @@ export default function Menu() {
         {
           icon: <Icon icon="ic:outline-home" width="24" height="24" />,
           label: "Home",
-          href: "/admin",
+          href: "/dashboard",
           visible: ["admin", "teacher", "student", "parent"],
         },
         {
@@ -69,27 +69,9 @@ export default function Menu() {
           visible: ["admin", "teacher", "student", "parent"],
         },
         {
-          icon: (
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/1286/1286827.png"
-              alt=""
-              className="w-[20px]"
-            />
-          ),
-          label: "Attendance",
-          href: "/list/attendance",
-          visible: ["admin", "teacher", "student", "parent"],
-        },
-        {
           icon: <Icon icon="ic:round-event" />,
           label: "Events",
           href: "/eventlist",
-          visible: ["admin", "teacher", "student", "parent"],
-        },
-        {
-          icon: <Icon icon="ant-design:message-outlined" />,
-          label: "Messages",
-          href: "/list/messages",
           visible: ["admin", "teacher", "student", "parent"],
         },
         {

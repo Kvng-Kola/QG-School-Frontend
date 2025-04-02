@@ -1,22 +1,102 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TeacherForm from "./forms/TeacherForm";
 import StudentForm from "./forms/StudentsForm";
 import SubjectForm from "./forms/SubjectForm";
+import { useNavigate } from "react-router-dom";
+import {
+  deleteClass,
+  deleteLesson,
+  deleteParent,
+  deleteStudent,
+  deleteSubject,
+  deleteTeacher,
+} from "../action";
+import { toast } from "react-toastify";
+import ClassForm from "./forms/ClassForm";
+import ParentForm from "./forms/ParentForm";
+import LessonForm from "./forms/LessonForm";
 
-//forms to display depending on the user type
+const deleteActionMap = {
+  subject: deleteSubject,
+  class: deleteClass,
+  teacher: deleteTeacher,
+  student: deleteStudent,
+  // exam: deleteExam,
+  // TODO: OTHER DELETE ACTIONS
+  parent: deleteParent,
+  lesson: deleteLesson,
+  // assignment: deleteSubject,
+  // result: deleteSubject,
+  // attendance: deleteSubject,
+  // event: deleteSubject,
+  // announcement: deleteSubject,
+};
+
+//forms to display depending on the table type
 const forms = {
-  teacher: (type, data, setopen) => {
-    return <TeacherForm type={type} data={data} setopen={setopen} />;
+  teacher: (type, data, setopen, relatedData) => {
+    return (
+      <TeacherForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
   },
-  student: (type, data, setopen) => {
-    return <StudentForm type={type} data={data} setopen={setopen} />;
+  student: (type, data, setopen, relatedData) => {
+    return (
+      <StudentForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
   },
-  subject: (type, data, setopen) => {
-    return <SubjectForm type={type} data={data} setopen={setopen} />;
+  parent: (type, data, setopen, relatedData) => {
+    return (
+      <ParentForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
+  },
+  subject: (type, data, setopen, relatedData) => {
+    return (
+      <SubjectForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
+  },
+  class: (type, data, setopen, relatedData) => {
+    return (
+      <ClassForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
+  },
+  lesson: (type, data, setopen, relatedData) => {
+    return (
+      <LessonForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
   },
 };
-export default function FormModal({ type, data, id, table }) {
+export default function FormModal({ type, data, id, table, relatedData }) {
   const size = type === "create" ? "w-8 h-8" : "w-7 h-7";
   let bgColor;
   let iconName;
@@ -35,17 +115,39 @@ export default function FormModal({ type, data, id, table }) {
   const [open, setopen] = useState(false);
   // form to display
   const Form = () => {
+    const navigate = useNavigate();
+    const [success, setSuccess] = useState(false);
+    const formAction = (e) => {
+      e.preventDefault();
+      const id = e.target.id.value;
+      deleteActionMap[table](id, setSuccess, navigate);
+    };
+    useEffect(() => {
+      if (success === true) {
+        toast.success(`${table} deleted successfully!`, {
+          autoClose: 3000,
+          onClose: () => {
+            navigate(0);
+          },
+        });
+        setopen(false);
+      }
+    }, [success]);
     return type === "delete" && id ? (
-      <form action="" className="p-4 flex flex-col gap-4">
+      <form onSubmit={formAction} className="p-4 flex flex-col gap-4">
+        <input type="number" defaultValue={id} hidden name="id" />
         <span className="text-center font-medium">
           All data will be lost. Are you sure you want to delete this {table}
         </span>
-        <button className="bg-red text-white py-2 px-4 rounded-md border-none w-max self-center">
+        <button
+          type="submit"
+          className="bg-red text-white py-2 px-4 rounded-md border-none w-max self-center"
+        >
           Delete
         </button>
       </form>
-    ) : type == "create" || "update" ? (
-      forms[table](type, data, setopen)
+    ) : type === "create" || "update" ? (
+      forms[table](type, data, setopen, relatedData)
     ) : (
       "Form not found"
     );

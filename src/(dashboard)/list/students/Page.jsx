@@ -8,8 +8,10 @@ import Table from "../../components/Table";
 import { Link } from "react-router-dom";
 import { role, studentsData } from "../../Data";
 import FormModal from "../../components/FormModal";
+
 import axios from "axios";
 import Loading from "../../components/Loading";
+import FormContainer from "../../components/formContainer";
 
 const columns = [
   {
@@ -62,11 +64,11 @@ const renderRow = (item) => {
       </td>
       <td className="hidden md:table-cell ">{item.student_id}</td>
       <td className="hidden md:table-cell">{item.level.name}</td>
-      <td className="hidden lg:table-cell">{item.phone1}</td>
+      <td className="hidden lg:table-cell">{item.phone}</td>
       <td className="hidden lg:table-cell">{item.home_address}</td>
       <td>
         <div className="flex items-center gap-2">
-          <Link to={`/list/students`}>
+          <Link to={`/student/${item.id}`}>
             <button className="w-7 h-7 flex items-center justify-center rounded-full bg-lamaSky">
               <Icon
                 icon="carbon:view"
@@ -77,7 +79,7 @@ const renderRow = (item) => {
             </button>
           </Link>
           {role === "admin" && (
-            <FormModal table={"student"} type={"delete"} id={item.id} />
+            <FormContainer table={"student"} type={"delete"} id={item.id} />
           )}
         </div>
       </td>
@@ -155,7 +157,7 @@ export default function StudentListpage() {
                 />
               </button>
               {role === "admin" && (
-                <FormModal table={"student"} type={"create"} />
+                <FormContainer table={"student"} type={"create"} />
               )}
             </div>
           </div>
