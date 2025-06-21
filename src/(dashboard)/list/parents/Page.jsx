@@ -5,40 +5,14 @@ import filter from "../../../assets/filter.png";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
-import { Link } from "react-router-dom";
-import { parentsData, role } from "../../Data";
-import FormModal from "../../components/FormModal";
 import axios from "axios";
 import Loading from "../../components/Loading";
 import FormContainer from "../../components/formContainer";
-
-const columns = [
-  {
-    header: "Info",
-    accessor: "info",
-  },
-  {
-    header: "Student Names",
-    accessor: "students",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Phone",
-    accessor: "phone",
-    className: "hidden lg:table-cell",
-  },
-  {
-    header: "Address",
-    accessor: "address",
-    className: "hidden lg:table-cell",
-  },
-  {
-    header: "Actions",
-    accessor: "action",
-  },
-];
+import { useAuthContext } from "../../../context/AuthContext";
 
 const renderRow = (item) => {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   return (
     <tr
       key={item.id}
@@ -69,11 +43,39 @@ const renderRow = (item) => {
   );
 };
 export default function ParentListpage() {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const itemsPerPage = 10;
+
+  const columns = [
+    {
+      header: "Info",
+      accessor: "info",
+    },
+    {
+      header: "Student Names",
+      accessor: "students",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "Phone",
+      accessor: "phone",
+      className: "hidden lg:table-cell",
+    },
+    {
+      header: "Address",
+      accessor: "address",
+      className: "hidden lg:table-cell",
+    },
+    role === "admin" && {
+      header: "Actions",
+      accessor: "action",
+    },
+  ];
 
   // Fetch data from the backend API
   useEffect(() => {

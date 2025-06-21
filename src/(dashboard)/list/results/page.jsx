@@ -5,68 +5,33 @@ import filter from "../../../assets/filter.png";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
-import { Link } from "react-router-dom";
-import { resultsData, role } from "../../Data";
-import FormModal from "../../components/FormModal";
 import axios from "axios";
 import Loading from "../../components/Loading";
+import FormContainer from "../../components/formContainer";
+import { useAuthContext } from "../../../context/AuthContext";
 
-const columns = [
-  {
-    header: "Title",
-    accessor: "title",
-  },
-  {
-    header: "Student",
-    accessor: "student",
-  },
-  {
-    header: "Score",
-    accessor: "score",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Teacher",
-    accessor: "teacher",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Class",
-    accessor: "class",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Date",
-    accessor: "date",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Actions",
-    accessor: "action",
-  },
-];
 const renderRow = (item) => {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   return (
     <tr
       key={item.id}
       className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight text-left"
     >
       <td className="flex flex-col md:flex-row items-center gap-4 p-4 ">
-        {item.exam.title}
+        {item?.title}
       </td>
-      <td>{item.student.firstname}</td>{" "}
-      <td className="hidden md:table-cell">{item.score}</td>{" "}
-      <td className="hidden md:table-cell">
-        {item.exam.lesson.teacher.firstname}
-      </td>{" "}
-      <td className="hidden md:table-cell">{item.exam.lesson.class.name}</td>{" "}
-      <td className="hidden md:table-cell">{item.exam.startTime}</td>{" "}
+      <td>{item?.studentSurname}</td>{" "}
+      <td className="hidden md:table-cell">{item?.score}</td>{" "}
+      <td className="hidden md:table-cell">{item?.teacherName}</td>{" "}
+      <td className="hidden md:table-cell">{item?.className}</td>{" "}
+      <td className="hidden md:table-cell">{item?.startTime}</td>{" "}
       <td>
         <div className="flex items-center gap-2">
           {(role === "admin" || role === "teacher") && (
             <>
-              <FormModal table="result" type="update" data={item} />
-              <FormModal table="result" type="delete" id={item.id} />
+              <FormContainer table="result" type="update" data={item} />
+              <FormContainer table="result" type="delete" id={item.id} />
             </>
           )}
         </div>
@@ -76,6 +41,43 @@ const renderRow = (item) => {
 };
 
 export default function ResultListpage() {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
+  const guardianId = authUser.id;
+  const columns = [
+    {
+      header: "Title",
+      accessor: "title",
+    },
+    {
+      header: "Student",
+      accessor: "student",
+    },
+    {
+      header: "Score",
+      accessor: "score",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "Teacher",
+      accessor: "teacher",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "Class",
+      accessor: "class",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "Date",
+      accessor: "date",
+      className: "hidden md:table-cell",
+    },
+    (role === "admin" || role === "teacher") && {
+      header: "Actions",
+      accessor: "action",
+    },
+  ];
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
@@ -88,7 +90,9 @@ export default function ResultListpage() {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:8000/api/resultList`
+          role === "guardian"
+            ? `http://localhost:8000/api/students/result/guardian/${guardianId}`
+            : `http://localhost:8000/api/resultList`
         );
         setData(response.data);
         setLoading(false);
@@ -140,7 +144,7 @@ export default function ResultListpage() {
                 />
               </button>
               {(role === "admin" || role === "teacher") && (
-                <FormModal table="result" type="create" />
+                <FormContainer table="result" type="create" />
               )}
             </div>
           </div>

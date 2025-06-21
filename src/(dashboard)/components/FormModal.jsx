@@ -5,9 +5,14 @@ import StudentForm from "./forms/StudentsForm";
 import SubjectForm from "./forms/SubjectForm";
 import { useNavigate } from "react-router-dom";
 import {
+  deleteAnnouncement,
+  deleteAssignment,
   deleteClass,
+  deleteEvent,
+  deleteExam,
   deleteLesson,
   deleteParent,
+  deleteResult,
   deleteStudent,
   deleteSubject,
   deleteTeacher,
@@ -16,21 +21,26 @@ import { toast } from "react-toastify";
 import ClassForm from "./forms/ClassForm";
 import ParentForm from "./forms/ParentForm";
 import LessonForm from "./forms/LessonForm";
+import ExamForm from "./forms/ExamForm";
+import AssignmentForm from "./forms/AssignmentForm";
+import ResultForm from "./forms/ResultForm";
+import EventForm from "./forms/EventForm";
+import AnnouncementForm from "./forms/AnnouncementForm";
 
 const deleteActionMap = {
   subject: deleteSubject,
   class: deleteClass,
   teacher: deleteTeacher,
   student: deleteStudent,
-  // exam: deleteExam,
+  exam: deleteExam,
   // TODO: OTHER DELETE ACTIONS
   parent: deleteParent,
   lesson: deleteLesson,
-  // assignment: deleteSubject,
-  // result: deleteSubject,
+  assignment: deleteAssignment,
+  result: deleteResult,
   // attendance: deleteSubject,
-  // event: deleteSubject,
-  // announcement: deleteSubject,
+  event: deleteEvent,
+  announcement: deleteAnnouncement,
 };
 
 //forms to display depending on the table type
@@ -88,6 +98,56 @@ const forms = {
   lesson: (type, data, setopen, relatedData) => {
     return (
       <LessonForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
+  },
+  exam: (type, data, setopen, relatedData) => {
+    return (
+      <ExamForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
+  },
+  assignment: (type, data, setopen, relatedData) => {
+    return (
+      <AssignmentForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
+  },
+  result: (type, data, setopen, relatedData) => {
+    return (
+      <ResultForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
+  },
+  event: (type, data, setopen, relatedData) => {
+    return (
+      <EventForm
+        type={type}
+        data={data}
+        setopen={setopen}
+        relatedData={relatedData}
+      />
+    );
+  },
+  announcement: (type, data, setopen, relatedData) => {
+    return (
+      <AnnouncementForm
         type={type}
         data={data}
         setopen={setopen}

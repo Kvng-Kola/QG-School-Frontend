@@ -1,5 +1,11 @@
 import { api } from "./services/apiService";
 
+// HELPER OR UTILITY FUNCTIONS
+const formatDateApi = (date) => {
+  if (!date) return null;
+  return date.toISOString().slice(0, 19).replace("T", " ");
+};
+
 // CRUD PROCESS FOR SUBJECTS
 export const createSubject = async (data, setState, state) => {
   const { name, level, teacher } = data;
@@ -80,7 +86,8 @@ export const deleteClass = async (id, setSuccess) => {
     console.log(error);
   }
 };
-// CRUD PROCESS FOR Lesson
+
+// CRUD PROCESS FOR LESSON
 export const createLesson = async (data, setState, state) => {
   const { class_id, day, end_time, name, start_time, subject_id, teacher_id } =
     data;
@@ -131,6 +138,210 @@ export const UpdateLesson = async (data, setState, state) => {
 export const deleteLesson = async (id, setSuccess) => {
   try {
     await api.delete(`/api/deleteLesson/${parseInt(id)}`);
+    return setSuccess(true);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// CRUD PROCESS FOR EXAM
+export const createExam = async (data, setState, state) => {
+  const { end_time, lesson_id, start_time, title } = data;
+  try {
+    await api.post(`/api/createExam`, {
+      lesson_id,
+      end_time,
+      start_time,
+      title,
+    });
+    return setState({ ...state, success: true, error: false });
+  } catch (error) {
+    console.error(error);
+    return setState({ ...state, success: false, error: true });
+  }
+};
+export const UpdateExam = async (data, setState, state) => {
+  try {
+    const { end_time, lesson_id, start_time, title, id } = data;
+    await api.patch(`/api/updateExam/${id}`, {
+      end_time,
+      lesson_id,
+      start_time,
+      title,
+    });
+    return setState({ ...state, success: true, error: false });
+  } catch (error) {
+    console.error(error);
+    return setState({ ...state, success: false, error: true });
+  }
+};
+export const deleteExam = async (id, setSuccess) => {
+  try {
+    await api.delete(`/api/deleteExam/${parseInt(id)}`);
+    return setSuccess(true);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// CRUD PROCESS FOR ASSIGNMENT
+export const createAssignment = async (data, setState, state) => {
+  const { due_date, lesson_id, start_date, title } = data;
+  try {
+    await api.post(`/api/createAssignment`, {
+      lesson_id,
+      due_date: formatDateApi(due_date),
+      start_date: formatDateApi(start_date),
+      title,
+    });
+    return setState({ ...state, success: true, error: false });
+  } catch (error) {
+    console.error(error);
+    return setState({ ...state, success: false, error: true });
+  }
+};
+export const UpdateAssignment = async (data, setState, state) => {
+  try {
+    const { due_date, lesson_id, start_date, title, id } = data;
+    await api.patch(`/api/updateAssignment/${id}`, {
+      lesson_id,
+      due_date: formatDateApi(due_date),
+      start_date: formatDateApi(start_date),
+      title,
+    });
+    return setState({ ...state, success: true, error: false });
+  } catch (error) {
+    console.error(error);
+    return setState({ ...state, success: false, error: true });
+  }
+};
+export const deleteAssignment = async (id, setSuccess) => {
+  try {
+    await api.delete(`/api/deleteAssignment/${parseInt(id)}`);
+    return setSuccess(true);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// CRUD PROCESS FOR RESULT
+export const createResult = async (data, setState, state) => {
+  const { assignment_id, exam_id, score } = data;
+  const randomStudentId = Math.ceil(Math.random() * 50);
+  console.log(randomStudentId);
+  console.log(data);
+  // try {
+  //   await api.post(`/api/createResult`, {
+  //     assignment_id,
+  //     exam_id,
+  //     score,
+  //   });
+  //   return setState({ ...state, success: true, error: false });
+  // } catch (error) {
+  //   console.error(error);
+  //   return setState({ ...state, success: false, error: true });
+  // }
+};
+export const UpdateResult = async (data, setState, state) => {
+  try {
+    const { due_date, lesson_id, start_date, title, id } = data;
+    await api.patch(`/api/updateAssignment/${id}`, {
+      lesson_id,
+      due_date: formatDateApi(due_date),
+      start_date: formatDateApi(start_date),
+      title,
+    });
+    return setState({ ...state, success: true, error: false });
+  } catch (error) {
+    console.error(error);
+    return setState({ ...state, success: false, error: true });
+  }
+};
+export const deleteResult = async (id, setSuccess) => {
+  try {
+    await api.delete(`/api/deleteAssignment/${parseInt(id)}`);
+    return setSuccess(true);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// CRUD PROCESS FOR EVENT
+export const createEvent = async (data, setState, state) => {
+  const { end_time, class_id, start_time, title, description } = data;
+  try {
+    await api.post(`/api/createEvent`, {
+      class_id,
+      end_time: formatDateApi(end_time),
+      start_time: formatDateApi(start_time),
+      title,
+      description,
+    });
+    return setState({ ...state, success: true, error: false });
+  } catch (error) {
+    console.error(error);
+    return setState({ ...state, success: false, error: true });
+  }
+};
+export const UpdateEvent = async (data, setState, state) => {
+  try {
+    const { end_time, class_id, start_time, title, description, id } = data;
+    await api.patch(`/api/updateEvent/${id}`, {
+      class_id,
+      end_time: formatDateApi(end_time),
+      start_time: formatDateApi(start_time),
+      title,
+      description,
+    });
+    return setState({ ...state, success: true, error: false });
+  } catch (error) {
+    console.error(error);
+    return setState({ ...state, success: false, error: true });
+  }
+};
+export const deleteEvent = async (id, setSuccess) => {
+  try {
+    await api.delete(`/api/deleteEvent/${parseInt(id)}`);
+    return setSuccess(true);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// CRUD PROCESS FOR ANNOUNCEMENT
+export const createAnnouncement = async (data, setState, state) => {
+  const { date, class_id, title, description } = data;
+  try {
+    await api.post(`/api/createAnnouncement`, {
+      class_id,
+      date: formatDateApi(date),
+      title,
+      description,
+    });
+    return setState({ ...state, success: true, error: false });
+  } catch (error) {
+    console.error(error);
+    return setState({ ...state, success: false, error: true });
+  }
+};
+export const UpdateAnnouncement = async (data, setState, state) => {
+  try {
+    const { date, class_id, title, description, id } = data;
+    await api.patch(`/api/updateAnnouncement/${id}`, {
+      class_id,
+      date: formatDateApi(date),
+      title,
+      description,
+    });
+    return setState({ ...state, success: true, error: false });
+  } catch (error) {
+    console.error(error);
+    return setState({ ...state, success: false, error: true });
+  }
+};
+export const deleteAnnouncement = async (id, setSuccess) => {
+  try {
+    await api.delete(`/api/deleteAnnouncement/${parseInt(id)}`);
     return setSuccess(true);
   } catch (error) {
     console.log(error);
@@ -233,8 +444,16 @@ export const deleteTeacher = async (id, setSuccess) => {
   }
 };
 // CRUD PROCESS FOR Student
-export const createStudent = async (data, setState, state, image, setError) => {
-  console.log(data);
+export const createStudent = async (
+  data,
+  setState,
+  state,
+  image,
+  setError,
+  role,
+  authUser
+) => {
+  const parentId = role === "guardian" ? authUser.user.id : null;
   const {
     firstname,
     lastname,
@@ -247,7 +466,6 @@ export const createStudent = async (data, setState, state, image, setError) => {
     sex,
     levelId,
     classId,
-    parentId,
   } = data;
   try {
     await api.post(`/api/createStudent`, {
@@ -296,7 +514,6 @@ export const UpdateStudent = async (data, setState, setError) => {
       sex,
       levelId,
       classId,
-      parentId,
     } = data;
     await api.patch(`/api/updateStudent/${parseInt(id)}`, {
       firstname,
@@ -310,7 +527,6 @@ export const UpdateStudent = async (data, setState, setError) => {
       sex,
       levelId,
       classId,
-      parentId,
     });
     return setState((prev) => ({ ...prev, success: true, error: false }));
   } catch (error) {
@@ -424,19 +640,45 @@ export const createUser = async (data, setError) => {
     return setError((prev) => ({ ...prev, success: false, error: true }));
   }
 };
-export const loginUser = async (data, setState) => {
+export const loginUser = async (
+  data,
+  setState,
+  getAuthenticatedUserInfo,
+  navigate,
+  toast,
+  role
+) => {
   const { email, password } = data;
   try {
     const res = await api.post("/api/login", { email, password });
-    console.log(res.data);
-    return setState((prev) => ({
-      ...prev,
-      success: true,
-      error: false,
-    }));
+    const { token, type } = res.data;
+    getAuthenticatedUserInfo(token);
+    toast.success(`Login successfully`, {
+      autoClose: 2000,
+      onClose: () => {
+        if (role) {
+          switch (role) {
+            case "admin":
+              navigate("/dashboard");
+              break;
+            case "teacher":
+              navigate("/teacher");
+              break;
+            case "student":
+              navigate("/student");
+              break;
+            case "guardian":
+              navigate("/parent");
+              break;
+            default:
+              break;
+          }
+        }
+      },
+    });
   } catch (error) {
     console.log(error);
-    if (error.response.data) {
+    if (error.response?.data) {
       let message = error.response?.data?.message;
       if (message)
         setState((prev) => ({

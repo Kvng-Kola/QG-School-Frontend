@@ -12,6 +12,8 @@ export default function InputField({
   serverErr,
   hidden,
   fullWidth,
+  max,
+  min,
 }) {
   return (
     <>
@@ -24,6 +26,9 @@ export default function InputField({
           {label}
         </label>
         <input
+          autoComplete="off"
+          max={max}
+          min={min}
           type={type}
           {...register(name)}
           className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full "

@@ -3,6 +3,7 @@ import DLayout from "../DLayout";
 import Announcements from "../components/Announcements";
 import BigCalender from "../components/BigCalender";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { useAuthContext } from "../../context/AuthContext";
 
 export default function ParentPage() {
   return (

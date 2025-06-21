@@ -112,7 +112,7 @@ export default function LessonForm({ type, data, setopen, relatedData }) {
               {...register("class_id")}
               defaultValue={data?.class_id}
             >
-              {qg_class.map((data, id) => (
+              {qg_class?.map((data, id) => (
                 <option key={id} value={data.id}>
                   {data.name}
                 </option>
@@ -131,7 +131,7 @@ export default function LessonForm({ type, data, setopen, relatedData }) {
               {...register("subject_id")}
               defaultValue={data?.subject_id}
             >
-              {subject.map((data, id) => (
+              {subject?.map((data, id) => (
                 <option key={id} value={data.id}>
                   {data.name}
                 </option>
@@ -150,7 +150,7 @@ export default function LessonForm({ type, data, setopen, relatedData }) {
               {...register("teacher_id")}
               defaultValue={data?.teacher_id}
             >
-              {teacher.map((data, id) => (
+              {teacher?.map((data, id) => (
                 <option key={id} value={data.id}>
                   {data.firstname + " " + data.lastname}
                 </option>

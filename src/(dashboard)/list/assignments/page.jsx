@@ -5,38 +5,14 @@ import filter from "../../../assets/filter.png";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
-import { Link } from "react-router-dom";
-import { assignmentsData, examsData, lessonsData, role } from "../../Data";
-import FormModal from "../../components/FormModal";
+import FormContainer from "../../components/formContainer";
 import axios from "axios";
 import Loading from "../../components/Loading";
-
-const columns = [
-  {
-    header: "Subject Name",
-    accessor: "name",
-  },
-  {
-    header: "Class",
-    accessor: "class",
-  },
-  {
-    header: "Teacher",
-    accessor: "teacher",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Due Date",
-    accessor: "dueDate",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Actions",
-    accessor: "action",
-  },
-];
+import { useAuthContext } from "../../../context/AuthContext";
 
 const renderRow = (item) => {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   return (
     <tr
       key={item.id}
@@ -47,15 +23,15 @@ const renderRow = (item) => {
       </td>
       <td>{item.lesson.class.name}</td>
       <td className="hidden md:table-cell">
-        {item.lesson.teacher.firstname} + {item.lesson.teacher.lastname}
+        {item.lesson.teacher.firstname}
       </td>{" "}
       <td className="hidden md:table-cell">{item.due_date}</td>{" "}
       <td>
         <div className="flex items-center gap-2">
           {(role === "admin" || role === "teacher") && (
             <>
-              <FormModal table="assignment" type="update" data={item} />
-              <FormModal table="assignment" type="delete" id={item.id} />
+              <FormContainer table="assignment" type="update" data={item} />
+              <FormContainer table="assignment" type="delete" id={item.id} />
             </>
           )}
         </div>
@@ -64,11 +40,38 @@ const renderRow = (item) => {
   );
 };
 export default function AssignmentListpage() {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const itemsPerPage = 5;
+
+  const columns = [
+    {
+      header: "Subject Name",
+      accessor: "name",
+    },
+    {
+      header: "Class",
+      accessor: "class",
+    },
+    {
+      header: "Teacher",
+      accessor: "teacher",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "Due Date",
+      accessor: "dueDate",
+      className: "hidden md:table-cell",
+    },
+    (role === "admin" || role === "teacher") && {
+      header: "Actions",
+      accessor: "action",
+    },
+  ];
 
   // Fetch data from the backend API
   useEffect(() => {
@@ -132,10 +135,9 @@ export default function AssignmentListpage() {
                   style={{ color: "#000" }}
                 />
               </button>
-              {role === "admin" ||
-                (role === "teacher" && (
-                  <FormModal table="assignment" type="create" />
-                ))}
+              {(role === "admin" || role === "teacher") && (
+                <FormContainer table="assignment" type="create" />
+              )}
             </div>
           </div>
         </div>

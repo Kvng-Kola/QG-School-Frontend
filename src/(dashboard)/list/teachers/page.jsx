@@ -6,48 +6,14 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
 import { Link } from "react-router-dom";
-import { role, teachersData } from "../../Data";
 import FormContainer from "../../components/formContainer";
 import axios from "axios";
 import Loading from "../../components/Loading";
-
-const columns = [
-  {
-    header: "Info",
-    accessor: "info",
-  },
-  {
-    header: "Teacher ID",
-    accessor: "teacherId",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Subjects",
-    accessor: "subjects",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Classes",
-    accessor: "classes",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Phone",
-    accessor: "phone",
-    className: "hidden lg:table-cell",
-  },
-  {
-    header: "Address",
-    accessor: "address",
-    className: "hidden lg:table-cell",
-  },
-  {
-    header: "Actions",
-    accessor: "action",
-  },
-];
+import { useAuthContext } from "../../../context/AuthContext";
 
 const renderRow = (item) => {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   return (
     <tr
       key={item.id}
@@ -96,11 +62,48 @@ const renderRow = (item) => {
   );
 };
 export default function TeacherListpage() {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const itemsPerPage = 5;
+  const columns = [
+    {
+      header: "Info",
+      accessor: "info",
+    },
+    {
+      header: "Teacher ID",
+      accessor: "teacherId",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "Subjects",
+      accessor: "subjects",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "Classes",
+      accessor: "classes",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "Phone",
+      accessor: "phone",
+      className: "hidden lg:table-cell",
+    },
+    {
+      header: "Address",
+      accessor: "address",
+      className: "hidden lg:table-cell",
+    },
+    (role === "admin" || role === "teacher") && {
+      header: "Actions",
+      accessor: "action",
+    },
+  ];
 
   // Fetch data from the backend API
   useEffect(() => {

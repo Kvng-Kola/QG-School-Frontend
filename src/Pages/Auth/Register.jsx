@@ -7,25 +7,34 @@ import { createUser } from "../../(dashboard)/action";
 import InputField from "../../(dashboard)/components/InputFields";
 import { registerSchema } from "../../(dashboard)/formValidationSchema";
 import { toast } from "react-toastify";
+import { useMutation } from "@tanstack/react-query";
+import { api } from "../../(dashboard)/services/apiService";
 
 export default function Register({ data }) {
   const navigate = useNavigate();
-  const [error, setError] = useState({
-    emailErr: "",
-    success: false,
-    error: false,
-  });
-  const { emailErr } = error;
-  useEffect(() => {
-    if (error.success === true) {
-      toast.success(`registration successfully`, {
-        autoClose: 2000,
-        onClose: () => {
-          navigate("/login");
-        },
+  const { mutate, isPending, isError } = useMutation({
+    mutationKey: "register",
+    mutationFn: (data) => {
+      return api.post("/api/register", data);
+    },
+    onError: (error) => {
+      console.log(error);
+      const emailError = error.response.data.message;
+      toast.error(`${emailError}`, {
+        autoClose: 4000,
       });
-    }
-  }, [error]);
+    },
+    onSuccess: (data) => {
+      if (data.status === 200) {
+        toast.success(`registration successfull`, {
+          autoClose: 2000,
+          onClose: () => {
+            navigate("/login");
+          },
+        });
+      }
+    },
+  });
   const {
     register,
     handleSubmit,
@@ -34,7 +43,7 @@ export default function Register({ data }) {
     resolver: zodResolver(registerSchema),
   });
   const onSubmit = handleSubmit((data) => {
-    createUser(data, setError, navigate);
+    mutate(data);
   });
   return (
     <>
@@ -54,12 +63,13 @@ export default function Register({ data }) {
           <h2 className="font-bold text-4xl text-black text-center mb-6">
             Sign Up
           </h2>
-          {error.error && (
+          {isError && (
             <span className="text-rose-500 text-[12px]">
               Something went wrong
             </span>
           )}
           <form
+            autoComplete="off"
             onSubmit={onSubmit}
             className="space-y-7 [&_input]:placeholder:text-xs"
           >
@@ -84,7 +94,6 @@ export default function Register({ data }) {
             <InputField
               type={"email"}
               name="email"
-              serverErr={emailErr}
               placeholder={"Email Address"}
               defaultValue={data?.email}
               register={register}
@@ -109,11 +118,17 @@ export default function Register({ data }) {
               error={errors?.confirmPassword}
               fullWidth
             />
+
             <button
               type="submit"
-              className="w-full bg-black text-white py-2 rounded-xl text-sm"
+              disabled={isPending}
+              className="w-full bg-black text-white py-2 rounded-xl text-sm flex items-center justify-center"
             >
-              Sign up{" "}
+              {isPending ? (
+                <Icon icon="line-md:loading-loop" width="28" height="28" />
+              ) : (
+                "Sign up"
+              )}
             </button>
             <p className="text-center  text-gray-500 text-xs my-2">
               Already have an account?{" "}

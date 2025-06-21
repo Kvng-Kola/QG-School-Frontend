@@ -5,42 +5,14 @@ import filter from "../../../assets/filter.png";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
-import { Link } from "react-router-dom";
-import { eventsData, role } from "../../Data";
-import FormModal from "../../components/FormModal";
+import FormContainer from "../../components/formContainer";
 import axios from "axios";
 import Loading from "../../components/Loading";
+import { useAuthContext } from "../../../context/AuthContext";
 
-const columns = [
-  {
-    header: "Title",
-    accessor: "title",
-  },
-  {
-    header: "Class",
-    accessor: "class",
-  },
-  {
-    header: "Date",
-    accessor: "date",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Start Time",
-    accessor: "startTime",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "End Time",
-    accessor: "endTime",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Actions",
-    accessor: "action",
-  },
-];
 const renderRow = (item) => {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   return (
     <tr
       key={item.id}
@@ -59,8 +31,8 @@ const renderRow = (item) => {
         <div className="flex items-center gap-2">
           {role === "admin" && (
             <>
-              <FormModal table="event" type="update" data={item} />
-              <FormModal table="event" type="delete" id={item.id} />
+              <FormContainer table="event" type="update" data={item} />
+              <FormContainer table="event" type="delete" id={item.id} />
             </>
           )}
         </div>
@@ -70,6 +42,38 @@ const renderRow = (item) => {
 };
 
 export default function EventListpage() {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
+
+  const columns = [
+    {
+      header: "Title",
+      accessor: "title",
+    },
+    {
+      header: "Class",
+      accessor: "class",
+    },
+    {
+      header: "Date",
+      accessor: "date",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "Start Time",
+      accessor: "startTime",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "End Time",
+      accessor: "endTime",
+      className: "hidden md:table-cell",
+    },
+    role === "admin" && {
+      header: "Actions",
+      accessor: "action",
+    },
+  ];
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
@@ -133,7 +137,9 @@ export default function EventListpage() {
                   style={{ color: "#000" }}
                 />
               </button>
-              {role === "admin" && <FormModal table="event" type="create" />}
+              {role === "admin" && (
+                <FormContainer table="event" type="create" />
+              )}
             </div>
           </div>
         </div>

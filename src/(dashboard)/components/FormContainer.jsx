@@ -59,6 +59,56 @@ export default function FormContainer({ type, data, id, table }) {
               console.error(error);
             }
             break;
+          case "exam":
+            try {
+              const res = await axios.get(
+                "http://localhost:8000/api/getExamsRelatedData"
+              );
+              setRelatedData(res.data);
+            } catch (error) {
+              console.error(error);
+            }
+            break;
+          case "assignment":
+            try {
+              const res = await axios.get(
+                "http://localhost:8000/api/getAssignmentRelatedData"
+              );
+              setRelatedData(res.data);
+            } catch (error) {
+              console.error(error);
+            }
+            break;
+          case "result":
+            try {
+              const res = await axios.get(
+                "http://localhost:8000/api/getResultRelatedData"
+              );
+              setRelatedData(res.data);
+            } catch (error) {
+              console.error(error);
+            }
+            break;
+          case "event":
+            try {
+              const res = await axios.get(
+                "http://localhost:8000/api/getEventRelatedData"
+              );
+              setRelatedData(res.data);
+            } catch (error) {
+              console.error(error);
+            }
+            break;
+          case "announcement":
+            try {
+              const res = await axios.get(
+                "http://localhost:8000/api/getEventRelatedData"
+              );
+              setRelatedData(res.data);
+            } catch (error) {
+              console.error(error);
+            }
+            break;
           default:
             break;
         }

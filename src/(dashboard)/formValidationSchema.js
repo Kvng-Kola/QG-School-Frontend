@@ -35,6 +35,51 @@ export const lessonSchema = z.object({
     message: "day is required!",
   }),
 });
+export const examSchema = z.object({
+  id: z.coerce.number().optional(),
+  title: z.string().min(2, { message: "exam title is required" }),
+  start_time: z
+    .string()
+    .regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/, {
+      message: "Invalid time format. Use HH:MM:SS (e.g., 19:50:57)",
+    })
+    .min(1, { message: "Start time is required" }),
+  end_time: z
+    .string()
+    .regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/, {
+      message: "Invalid time format. Use HH:MM:SS (e.g., 19:50:57)",
+    })
+    .min(1, { message: "End time is required" }),
+  lesson_id: z.coerce.number().min(1, { message: "lesson ID is required" }),
+});
+export const assignmentSchema = z.object({
+  id: z.coerce.number().optional(),
+  title: z.string().min(2, { message: "exam title is required" }),
+  start_date: z.coerce.date(1, { message: "Start time is required" }),
+  due_date: z.coerce.date(1, { message: "due date is required" }),
+  lesson_id: z.coerce.number().min(1, { message: "lesson ID is required" }),
+});
+export const resultSchema = z.object({
+  id: z.coerce.number().optional(),
+  score: z.coerce.number().min(1, { message: "score is required" }),
+  assignment_id: z.coerce.number().optional().nullable(),
+  exam_id: z.coerce.number().optional().nullable(),
+});
+export const eventSchema = z.object({
+  id: z.coerce.number().optional(),
+  title: z.string().min(2, { message: "exam title is required" }),
+  description: z.string().min(2, { message: "description is required" }),
+  start_time: z.coerce.date(1, { message: "Start time is required" }),
+  end_time: z.coerce.date(1, { message: "end time is required" }),
+  class_id: z.coerce.number().min(1, { message: "class ID is required" }),
+});
+export const announcementSchema = z.object({
+  id: z.coerce.number().optional(),
+  title: z.string().min(2, { message: "exam title is required" }),
+  description: z.string().min(2, { message: "description is required" }),
+  date: z.coerce.date(1, { message: "date time is required" }),
+  class_id: z.coerce.number().min(1, { message: "class ID is required" }),
+});
 
 export const registerSchema = z
   .object({
@@ -98,7 +143,6 @@ export const studentSchema = z.object({
   sex: z.enum(["male", "female", "others"], { message: "Sex is required!" }),
   levelId: z.coerce.number().min(1, { message: "Grade is required!" }),
   classId: z.coerce.number().min(1, { message: "Class is required!" }),
-  parentId: z.coerce.number().min(1, { message: "Parent Id is required!" }),
 });
 // form validation for Parents
 export const parentSchema = z.object({

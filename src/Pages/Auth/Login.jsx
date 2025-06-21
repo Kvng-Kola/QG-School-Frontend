@@ -1,31 +1,44 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Loading from "../../(dashboard)/components/Loading";
 import InputField from "../../(dashboard)/components/InputFields";
 import { useForm } from "react-hook-form";
 import { loginSchema } from "../../(dashboard)/formValidationSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginUser } from "../../(dashboard)/action";
 import { toast } from "react-toastify";
+import { useMutation } from "@tanstack/react-query";
+import { api } from "../../(dashboard)/services/apiService";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { useAuthContext } from "../../context/AuthContext";
 
 export default function Login() {
-  const [state, setState] = useState({
-    success: false,
-    error: false,
-    setResponse: "",
-  });
-  const { success, error, setResponse } = state;
+  const { authUser } = useAuthContext();
   const navigate = useNavigate();
-  useEffect(() => {
-    if (success === true) {
-      toast.success(`Login successfully`, {
-        autoClose: 2000,
+  const { mutate, isPending } = useMutation({
+    mutationFn: (data) => {
+      if (authUser !== null) {
+        return navigate(`/${authUser.role}`);
+      }
+      return api.post("/api/login", data);
+    },
+    mutationKey: ["login"],
+    onSuccess: (data) => {
+      console.log(data.data.user);
+      const message = data.data.message;
+      localStorage.setItem("auth_user", JSON.stringify(data.data.user));
+      toast.success(`${message}`, {
+        autoClose: 3000,
         onClose: () => {
-          navigate("/login");
+          navigate(`/${data.data.user.role}`);
+          navigate(0);
         },
       });
-    }
-  }, [error]);
+    },
+    onError: (error) => {
+      console.log(error.response.data.message);
+      const message = error.response.data.message;
+      toast.error(`${message}`);
+    },
+  });
   const {
     register,
     handleSubmit,
@@ -34,7 +47,7 @@ export default function Login() {
     resolver: zodResolver(loginSchema),
   });
   const onSubmit = handleSubmit((data) => {
-    loginUser(data, setState);
+    mutate(data);
   });
   return (
     <>
@@ -43,10 +56,8 @@ export default function Login() {
           <h2 className="font-bold text-4xl text-black text-center mb-6">
             Login
           </h2>
-          {error && (
-            <span className="text-rose-500 text-[12px]">{setResponse}</span>
-          )}
           <form
+            autoComplete="off"
             onSubmit={onSubmit}
             className="space-y-7 [&_input]:placeholder:text-xs"
           >
@@ -69,14 +80,19 @@ export default function Login() {
 
             <button
               type="submit"
-              className="w-full bg-black text-white py-2 rounded-xl text-sm"
+              disabled={isPending}
+              className="w-full bg-black text-white py-2 rounded-xl text-sm flex items-center justify-center"
             >
-              Login{" "}
+              {isPending ? (
+                <Icon icon="line-md:loading-loop" width="28" height="28" />
+              ) : (
+                "Log In"
+              )}
             </button>
           </form>
           <p className="text-center  text-gray-500 text-xs my-2">
             Don't have an account?{" "}
-            <Link to="/register" className="text-black font-medium text-sm">
+            <Link to="/" className="text-black font-medium text-sm">
               Sign up
             </Link>
           </p>

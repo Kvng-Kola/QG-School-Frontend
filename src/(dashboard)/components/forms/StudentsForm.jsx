@@ -6,8 +6,11 @@ import { studentSchema } from "../../formValidationSchema";
 import { useNavigate } from "react-router-dom";
 import { createStudent, UpdateStudent } from "../../action";
 import { toast } from "react-toastify";
+import { useAuthContext } from "../../../context/AuthContext";
 
 export default function StudentForm({ type, data, setopen, relatedData }) {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   const { classes, grades } = relatedData;
   const [state, setState] = useState({
     success: false,
@@ -61,7 +64,7 @@ export default function StudentForm({ type, data, setopen, relatedData }) {
   });
   const onsubmit = handleSubmit((data) => {
     if (type === "create") {
-      createStudent(data, setState, state, image, setError);
+      createStudent(data, setState, state, image, setError, role, authUser);
     } else {
       UpdateStudent(data, setState, setError);
     }
@@ -163,13 +166,6 @@ export default function StudentForm({ type, data, setopen, relatedData }) {
             register={register}
             error={errors.dob}
             type="date"
-          />
-          <InputField
-            label="Parent Id"
-            name="parentId"
-            defaultValue={data?.parentId}
-            register={register}
-            error={errors.parentId}
           />
           <div className="flex flex-col gap-2 w-full md:w-1/4">
             <label className="text-xs text-gray-500">Sex</label>

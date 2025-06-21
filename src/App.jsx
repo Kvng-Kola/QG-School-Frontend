@@ -29,43 +29,124 @@ import SingleTeacherPage from "./(dashboard)/list/teachers/[ID]/page";
 import SingleStudentPage from "./(dashboard)/list/students/[ID]/page";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProtectRoute from "./utils/ProtectRoute";
+import Unauthorised from "./Pages/Unauthorised";
 
 function App() {
   return (
     <>
-      <ToastContainer position="bottom-right" theme="dark" />
+      <ToastContainer position="top-right" theme="dark" />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<Faqs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Register />} />
           <Route path="/enroll" element={<Enroll />} />
+          <Route path="/unauthorised" element={<Unauthorised />} />
+
           {/* Admin Dashboard Routes */}
-          <Route path="/dashboard" element={<AdminPage />} />
+          <Route element={<ProtectRoute allowedRoles={["admin"]} />}>
+            <Route path="/admin" element={<AdminPage />} />
+          </Route>
           {/* list page for teachers students and parents and subjects */}
-          <Route path="/teacherslist" element={<TeacherListpage />} />
-          <Route path="/teacher/:id" element={<SingleTeacherPage />} />
-          <Route path="/student/:id" element={<SingleStudentPage />} />
-          <Route path="/studentslist" element={<StudentListpage />} />
-          <Route path="/parentslist" element={<ParentListpage />} />
-          <Route path="/subjectslist" element={<SubjectListpage />} />
-          <Route path="/classlist" element={<ClassListpage />} />
-          <Route path="/examlist" element={<ExamListpage />} />
-          <Route path="/lessonlist" element={<LessonListpage />} />
-          <Route path="/assignmentlist" element={<AssignmentListpage />} />
-          <Route path="/resultlist" element={<ResultListpage />} />
-          <Route path="/eventlist" element={<EventListpage />} />
-          <Route path="/announcementlist" element={<AnnouncementListpage />} />
+          <Route element={<ProtectRoute allowedRoles={["admin", "teacher"]} />}>
+            <Route path="/teacherslist" element={<TeacherListpage />} />
+          </Route>
+          <Route element={<ProtectRoute allowedRoles={["admin", "teacher"]} />}>
+            <Route path="/teacher/:id" element={<SingleTeacherPage />} />
+          </Route>
+          <Route
+            element={
+              <ProtectRoute allowedRoles={["admin", "guardian", "student"]} />
+            }
+          >
+            <Route path="/student/:id" element={<SingleStudentPage />} />
+          </Route>
+          <Route
+            element={
+              <ProtectRoute allowedRoles={["admin", "teacher", "guardian"]} />
+            }
+          >
+            <Route path="/studentslist" element={<StudentListpage />} />
+          </Route>
+          <Route element={<ProtectRoute allowedRoles={["admin"]} />}>
+            <Route path="/parentslist" element={<ParentListpage />} />
+          </Route>
+          <Route element={<ProtectRoute allowedRoles={["admin"]} />}>
+            <Route path="/subjectslist" element={<SubjectListpage />} />
+          </Route>
+          <Route element={<ProtectRoute allowedRoles={["admin", "teacher"]} />}>
+            <Route path="/classlist" element={<ClassListpage />} />
+          </Route>
+          <Route
+            element={
+              <ProtectRoute
+                allowedRoles={["admin", "teacher", "student", "guardian"]}
+              />
+            }
+          >
+            <Route path="/examlist" element={<ExamListpage />} />
+          </Route>
+          <Route element={<ProtectRoute allowedRoles={["admin", "teacher"]} />}>
+            <Route path="/lessonlist" element={<LessonListpage />} />
+          </Route>
+          <Route
+            element={
+              <ProtectRoute
+                allowedRoles={["admin", "teacher", "student", "guardian"]}
+              />
+            }
+          >
+            <Route path="/assignmentlist" element={<AssignmentListpage />} />
+          </Route>
+          <Route
+            element={
+              <ProtectRoute
+                allowedRoles={["admin", "teacher", "student", "guardian"]}
+              />
+            }
+          >
+            <Route path="/resultlist" element={<ResultListpage />} />
+          </Route>
+          <Route
+            element={
+              <ProtectRoute
+                allowedRoles={["admin", "teacher", "student", "guardian"]}
+              />
+            }
+          >
+            <Route path="/eventlist" element={<EventListpage />} />
+          </Route>
+          <Route
+            element={
+              <ProtectRoute
+                allowedRoles={["admin", "teacher", "student", "guardian"]}
+              />
+            }
+          >
+            <Route
+              path="/announcementlist"
+              element={<AnnouncementListpage />}
+            />
+          </Route>
           {/* students Dashboard Routes */}
-          <Route path="/student" element={<StudentPage />} />
+          <Route element={<ProtectRoute allowedRoles={["student"]} />}>
+            <Route path="/student" element={<StudentPage />} />
+          </Route>
+
           {/* parents Dashboard Routes */}
-          <Route path="/parent" element={<ParentPage />} />
+          <Route element={<ProtectRoute allowedRoles={["guardian"]} />}>
+            <Route path="/guardian" element={<ParentPage />} />
+          </Route>
+
           {/* teacher Dashboard Routes */}
-          <Route path="/teacher" element={<TeacherPage />} />
+          <Route element={<ProtectRoute allowedRoles={["teacher"]} />}>
+            <Route path="/teacher" element={<TeacherPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

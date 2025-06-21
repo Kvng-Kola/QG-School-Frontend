@@ -5,38 +5,14 @@ import filter from "../../../assets/filter.png";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
-import { Link } from "react-router-dom";
-import { examsData, lessonsData, role } from "../../Data";
-import FormModal from "../../components/FormModal";
+import FormContainer from "../../components/formContainer";
 import axios from "axios";
 import Loading from "../../components/Loading";
-
-const columns = [
-  {
-    header: "Subject Name",
-    accessor: "name",
-  },
-  {
-    header: "Class",
-    accessor: "class",
-  },
-  {
-    header: "Teacher",
-    accessor: "teacher",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Date",
-    accessor: "date",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Actions",
-    accessor: "action",
-  },
-];
+import { useAuthContext } from "../../../context/AuthContext";
 
 const renderRow = (item) => {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   return (
     <tr
       key={item.id}
@@ -52,10 +28,10 @@ const renderRow = (item) => {
       <td className="hidden md:table-cell">{item.startTime}</td>{" "}
       <td>
         <div className="flex items-center gap-2">
-          {(role === "admin" || role === "teacher") && (
+          {(role == "admin" || role == "teacher") && (
             <>
-              <FormModal table="exam" type="update" data={item} />
-              <FormModal table="exam" type="delete" id={item.id} />
+              <FormContainer table="exam" type="update" data={item} />
+              <FormContainer table="exam" type="delete" id={item.id} />
             </>
           )}
         </div>
@@ -64,11 +40,38 @@ const renderRow = (item) => {
   );
 };
 export default function ExamListpage() {
+  const { authUser } = useAuthContext();
+  const role = authUser.role;
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const itemsPerPage = 5;
+
+  const columns = [
+    {
+      header: "Subject Name",
+      accessor: "name",
+    },
+    {
+      header: "Class",
+      accessor: "class",
+    },
+    {
+      header: "Teacher",
+      accessor: "teacher",
+      className: "hidden md:table-cell",
+    },
+    {
+      header: "Date",
+      accessor: "date",
+      className: "hidden md:table-cell",
+    },
+    (role === "admin" || role === "teacher") && {
+      header: "Actions",
+      accessor: "action",
+    },
+  ];
 
   // Fetch data from the backend API
   useEffect(() => {
@@ -128,10 +131,9 @@ export default function ExamListpage() {
                   style={{ color: "#000" }}
                 />
               </button>
-              {role === "admin" ||
-                (role === "teacher" && (
-                  <FormModal table="exam" type="create" />
-                ))}
+              {(role === "admin" || role === "teacher") && (
+                <FormContainer table="exam" type="create" />
+              )}
             </div>
           </div>
         </div>
