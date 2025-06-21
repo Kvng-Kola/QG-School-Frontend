@@ -7,7 +7,7 @@ import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
 import axios from "axios";
 import Loading from "../../components/Loading";
-import FormContainer from "../../components/formContainer";
+import FormContainer from "../../components/BigFormContainer";
 import { useAuthContext } from "../../../context/AuthContext";
 
 const renderRow = (item) => {

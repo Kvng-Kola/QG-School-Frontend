@@ -7,7 +7,7 @@ import { Link, useParams } from "react-router-dom";
 import Performance from "../../../components/Performance";
 import axios from "axios";
 import Loading from "../../../components/Loading";
-import FormContainer from "../../../components/formContainer";
+import FormContainer from "../../../components/BigFormContainer";
 
 export default function SingleStudentPage() {
   const { id } = useParams();

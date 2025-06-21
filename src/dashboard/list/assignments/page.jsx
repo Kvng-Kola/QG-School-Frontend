@@ -5,7 +5,7 @@ import filter from "../../../assets/filter.png";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Pagination from "../../components/Pagination";
 import Table from "../../components/Table";
-import FormContainer from "../../components/formContainer";
+import FormContainer from "../../components/BigFormContainer";
 import axios from "axios";
 import Loading from "../../components/Loading";
 import { useAuthContext } from "../../../context/AuthContext";

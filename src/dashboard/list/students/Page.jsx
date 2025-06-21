@@ -8,7 +8,7 @@ import Table from "../../components/Table";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "../../components/Loading";
-import FormContainer from "../../components/formContainer";
+import FormContainer from "../../components/BigFormContainer";
 import { useAuthContext } from "../../../context/AuthContext";
 
 const renderRow = (item) => {
