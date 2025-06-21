@@ -3,12 +3,12 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { createUser } from "../../(dashboard)/action";
-import InputField from "../../(dashboard)/components/InputFields";
-import { registerSchema } from "../../(dashboard)/formValidationSchema";
+import { createUser } from "../../dashboard/action";
+import InputField from "../../dashboard/components/InputFields";
+import { registerSchema } from "../../dashboard/formValidationSchema";
 import { toast } from "react-toastify";
 import { useMutation } from "@tanstack/react-query";
-import { api } from "../../(dashboard)/services/apiService";
+import { api } from "../../dashboard/services/apiService";
 
 export default function Register({ data }) {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ export default function Register({ data }) {
     },
     onSuccess: (data) => {
       if (data.status === 200) {
-        toast.success(`registration successfull`, {
+        toast.success(`registration successful`, {
           autoClose: 2000,
           onClose: () => {
             navigate("/login");

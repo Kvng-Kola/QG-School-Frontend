@@ -453,7 +453,7 @@ export const createStudent = async (
   role,
   authUser
 ) => {
-  const parentId = role === "guardian" ? authUser.user.id : null;
+  const parentId = role === "guardian" ? authUser.id : null;
   const {
     firstname,
     lastname,

@@ -9,28 +9,28 @@ import Logout from "./Pages/Auth/Logout";
 import Register from "./Pages/Auth/Register";
 import Enroll from "./Pages/Enroll";
 // Dashboard Routes
-import AdminPage from "./(dashboard)/admin/Page";
-import StudentPage from "./(dashboard)/student/Page";
-import ParentPage from "./(dashboard)/parents/Page";
-import TeacherPage from "./(dashboard)/teacher/page";
-import TeacherListpage from "./(dashboard)/list/teachers/page";
-import StudentListpage from "./(dashboard)/list/students/Page";
-import ParentListpage from "./(dashboard)/list/parents/Page";
-import SubjectListpage from "./(dashboard)/list/subjects/page";
-import ClassListpage from "./(dashboard)/list/classes/page";
-import ExamListpage from "./(dashboard)/list/exams/page";
-import LessonListpage from "./(dashboard)/list/lessons/page";
-import AssignmentListpage from "./(dashboard)/list/assignments/page";
-import ResultListpage from "./(dashboard)/list/results/page";
-import EventListpage from "./(dashboard)/list/events/page";
-import Announcements from "./(dashboard)/components/Announcements";
-import AnnouncementListpage from "./(dashboard)/list/announcements/page";
-import SingleTeacherPage from "./(dashboard)/list/teachers/[ID]/page";
-import SingleStudentPage from "./(dashboard)/list/students/[ID]/page";
+import AdminPage from "./dashboard/admin/Page";
+import StudentPage from "./dashboard/student/Page";
+import ParentPage from "./dashboard/parents/Page";
+import TeacherPage from "./dashboard/teacher/page";
+import TeacherListpage from "./dashboard/list/teachers/page";
+import StudentListpage from "./dashboard/list/students/Page";
+import ParentListpage from "./dashboard/list/parents/Page";
+// import SubjectListpage from "./(dashboard)/list/subjects/page";
+import ClassListpage from "./dashboard/list/classes/page";
+import ExamListpage from "./dashboard/list/exams/page";
+import LessonListpage from "./dashboard/list/lessons/page";
+import AssignmentListpage from "./dashboard/list/assignments/page";
+import ResultListpage from "./dashboard/list/results/page";
+import EventListpage from "./dashboard/list/events/page";
+import AnnouncementListpage from "./dashboard/list/announcements/page";
+import SingleTeacherPage from "./dashboard/list/teachers/ID/page";
+import SingleStudentPage from "./dashboard/list/students/ID/page";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectRoute from "./utils/ProtectRoute";
 import Unauthorised from "./Pages/Unauthorised";
+import SubjectListpage from "./dashboard/list/subjects/Page";
 
 function App() {
   return (

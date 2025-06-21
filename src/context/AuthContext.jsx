@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { api } from "../(dashboard)/services/apiService";
+import { api } from "../dashboard/services/apiService";
 import { getAuthUser } from "../Pages/Auth/getAuth";
 import { Icon } from "@iconify/react/dist/iconify.js";
 

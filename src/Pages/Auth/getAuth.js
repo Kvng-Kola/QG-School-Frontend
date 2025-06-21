@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { api } from "../../(dashboard)/services/apiService";
+import { api } from "../../dashboard/services/apiService";
 
 const fetchUser = async (token) => {
   try {

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import InputField from "../../(dashboard)/components/InputFields";
+import InputField from "../../dashboard/components/InputFields";
 import { useForm } from "react-hook-form";
-import { loginSchema } from "../../(dashboard)/formValidationSchema";
+import { loginSchema } from "../../dashboard/formValidationSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
 import { useMutation } from "@tanstack/react-query";
-import { api } from "../../(dashboard)/services/apiService";
+import { api } from "../../dashboard/services/apiService";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useAuthContext } from "../../context/AuthContext";
 
